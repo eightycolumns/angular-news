@@ -1,0 +1,11 @@
+@import "main.scss";
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: $dark-gray;
+  font: bold 2.25rem serif;
+  line-height: 1.5;
+}
