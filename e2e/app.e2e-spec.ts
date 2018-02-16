@@ -1,6 +1,6 @@
-import { AppPage } from './app.po';
+import { AppPage } from "./app.po";
 
-describe('angular-news App', () => {
+describe("angular-news App", () => {
   let page: AppPage;
 
   beforeEach(() => {
