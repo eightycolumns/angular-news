@@ -79,8 +79,18 @@ header {
     }
 
     a {
+      border-bottom: 2px solid transparent;
       color: $dark-gray;
       font: normal 1.1875rem "Arvo", serif;
+      transition: border-bottom 0.2s ease-in-out;
+    }
+
+    li:focus,
+    li:hover,
+    li:active {
+      a {
+        border-bottom: 2px solid $dark-gray;
+      }
     }
   }
 }
