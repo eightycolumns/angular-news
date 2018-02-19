@@ -33,6 +33,10 @@ header {
       transition: color 0.2s ease-in-out;
     }
 
+    li:hover {
+      cursor: pointer;
+    }
+
     li:focus,
     li:hover,
     li:active {
