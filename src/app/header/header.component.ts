@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-header",
@@ -7,4 +8,10 @@ import { Component } from "@angular/core";
     "./header.component.scss"
   ]
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  public date: string;
+
+  constructor(private datePipe: DatePipe) {
+    this.date = datePipe.transform(new Date(), "fullDate");
+  }
+}

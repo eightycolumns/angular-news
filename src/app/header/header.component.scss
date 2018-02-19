@@ -6,7 +6,7 @@ header {
   width: 90%;
 
   nav {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 
     ul {
       list-style: none;
@@ -48,6 +48,12 @@ header {
     font: bold 3rem "Arvo", serif;
     margin-top: 1rem;
     padding-top: 1rem;
+    text-align: center;
+  }
+
+  h2 {
+    color: $dark-gray;
+    font: normal 1.1875rem "Arvo", serif;
     text-align: center;
   }
 }

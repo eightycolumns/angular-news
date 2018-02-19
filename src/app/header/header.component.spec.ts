@@ -1,4 +1,5 @@
 import { ComponentFixture } from "@angular/core/testing";
+import { DatePipe } from "@angular/common";
 import { TestBed } from "@angular/core/testing";
 import { async } from "@angular/core/testing";
 
@@ -12,6 +13,9 @@ describe("HeaderComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         HeaderComponent
+      ],
+      providers: [
+        DatePipe
       ]
     }).compileComponents();
   }));

@@ -1,10 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { DatePipe } from "@angular/common";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
+  bootstrap: [
+    AppComponent
+  ],
   declarations: [
     AppComponent,
     HeaderComponent
@@ -12,8 +16,8 @@ import { HeaderComponent } from "./header/header.component";
   imports: [
     BrowserModule
   ],
-  bootstrap: [
-    AppComponent
+  providers: [
+    DatePipe
   ]
 })
 export class AppModule {}
