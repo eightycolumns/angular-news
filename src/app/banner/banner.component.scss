@@ -1,0 +1,13 @@
+@import "main.scss";
+
+h1 {
+  background-color: $light-gray;
+  box-sizing: border-box;
+  color: $dark-gray;
+  font: italic bold 1.5rem "Arvo", serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  width: 90%;
+}
