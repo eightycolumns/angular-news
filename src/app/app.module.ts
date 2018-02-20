@@ -3,6 +3,7 @@ import { DatePipe } from "@angular/common";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
+import { BannerComponent } from "./banner/banner.component";
 import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
@@ -11,6 +12,7 @@ import { HeaderComponent } from "./header/header.component";
   ],
   declarations: [
     AppComponent,
+    BannerComponent,
     HeaderComponent
   ],
   imports: [
