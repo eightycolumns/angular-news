@@ -1,13 +1,36 @@
 @import "main.scss";
 
-h1 {
+section {
   background-color: $light-gray;
-  box-sizing: border-box;
-  color: $dark-gray;
-  font: italic bold 1.5rem "Arvo", serif;
-  line-height: 1.5;
   margin: 0 auto;
-  padding: 1.5rem 3rem;
+  position: relative;
   text-align: center;
   width: 90%;
+
+  h1 {
+    color: $dark-gray;
+    font: italic bold 1.5rem "Arvo", serif;
+    line-height: 1.5;
+    padding: 2rem 4rem;
+  }
+
+  .call-to-action {
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0;
+
+    .text {
+      font: 1rem "Arvo", serif;
+      line-height: 1.5;
+      position: relative;
+      top: -0.75rem;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-left: 0.25rem;
+    }
+  }
 }
