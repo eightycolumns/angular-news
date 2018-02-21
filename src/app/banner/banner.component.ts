@@ -19,7 +19,7 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentService.getBanners().subscribe(
-      data => this.header = data[0].message
+      data => this.header = data.body[0].message
     );
   }
 
