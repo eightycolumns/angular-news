@@ -6,6 +6,7 @@ import { async } from "@angular/core/testing";
 import "rxjs/add/observable/of";
 
 import { BannerComponent } from "./banner.component";
+import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../content.service";
 
 describe("BannerComponent", () => {
@@ -27,7 +28,8 @@ describe("BannerComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        BannerComponent
+        BannerComponent,
+        CallToActionComponent
       ],
       imports: [
         HttpClientModule
@@ -57,7 +59,6 @@ describe("BannerComponent", () => {
 
   it("gets its headers from the content service", () => {
     expect(component.headerOne).toBe("Header One");
-    component.onClick();
     expect(component.headerTwo).toBe("Header Two");
   });
 });

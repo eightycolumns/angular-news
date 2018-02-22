@@ -1,17 +1,13 @@
 <section [class.expanded]="isExpanded">
   <h1>{{headerOne}}</h1>
 
-  <div
-    class="call-to-action"
-    [class.animated]="isAnimated"
-    (mouseover)="onMouseover()"
-    (mouseout)="onMouseout()"
-    (animationiteration)="onAnimationIterationEnd()"
-    (click)="onClick()">
+  <app-call-to-action action="expand" (click)="toggleExpansion()">
+  </app-call-to-action>
 
-    <span class="text">Click to expand</span>
-    <span class="icon fas fa-angle-down"></span>
+  <div [class.hidden]="!hasBeenExpanded">
+    <h2>{{headerTwo}}</h2>
+
+    <app-call-to-action action="hide" (click)="toggleExpansion()">
+    </app-call-to-action>
   </div>
-
-  <h2>{{headerTwo}}</h2>
 </section>

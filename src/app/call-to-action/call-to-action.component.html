@@ -1,0 +1,11 @@
+<div
+  [class.animated]="isAnimated"
+  (mouseover)="onMouseover()"
+  (mouseout)="onMouseout()"
+  (click)="onClick()"
+  (animationiteration)="onAnimationiteration()">
+
+  <span class="text">Click to {{action}}</span>
+  <span *ngIf="action === 'expand'" class="icon fas fa-angle-down"></span>
+  <span *ngIf="action === 'hide'" class="icon fas fa-angle-up"></span>
+</div>

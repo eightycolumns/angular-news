@@ -5,6 +5,7 @@ import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
 import { BannerComponent } from "./banner/banner.component";
+import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { ContentService } from "./content.service";
 import { HeaderComponent } from "./header/header.component";
 
@@ -15,6 +16,7 @@ import { HeaderComponent } from "./header/header.component";
   declarations: [
     AppComponent,
     BannerComponent,
+    CallToActionComponent,
     HeaderComponent
   ],
   imports: [

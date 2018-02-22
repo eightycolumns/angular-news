@@ -13,41 +13,20 @@ import { ContentService } from "../content.service";
 export class BannerComponent implements OnInit {
   public headerOne: string;
   public headerTwo: string;
-  public isAnimated = false;
   public isExpanded = false;
-  private isHovered = false;
+  public hasBeenExpanded = false;
 
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
     this.contentService.getBanners().subscribe(data => {
       this.headerOne = data.body[0].message;
+      this.headerTwo = data.body[1].message;
     });
   }
 
-  public onMouseover(): void {
-    this.isAnimated = true;
-    this.isHovered = true;
-  }
-
-  public onMouseout(): void {
-    this.isHovered = false;
-  }
-
-  public onAnimationIterationEnd(): void {
-    if (!this.isHovered) {
-      this.isAnimated = false;
-    }
-  }
-
-  public onClick(): void {
-    if (this.isExpanded === false && this.headerTwo === undefined) {
-      this.contentService.getBanners().subscribe(data => {
-        this.headerTwo = data.body[1].message;
-        this.isExpanded = true;
-      });
-    } else {
-      this.isExpanded = !this.isExpanded;
-    }
+  public toggleExpansion(): void {
+    this.hasBeenExpanded = true;
+    this.isExpanded = !this.isExpanded;
   }
 }
