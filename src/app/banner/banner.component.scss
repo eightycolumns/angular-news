@@ -7,19 +7,37 @@ section {
   text-align: center;
   width: 90%;
 
-  h1 {
+  h1,
+  h2 {
     color: $dark-gray;
     font: italic bold 1.5rem "Arvo", serif;
+  }
+
+  h1 {
     line-height: 1.5;
     padding: 2rem 4rem;
+  }
+
+  h2 {
+    line-height: 0;
+    opacity: 0;
+    padding: 0 4rem;
+    transform: scaleY(0);
+    transition:
+      line-height 0.5s ease-in-out,
+      opacity 0.5s ease-in-out,
+      padding 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
   }
 
   .call-to-action {
     color: white;
     cursor: pointer;
+    opacity: 1;
     position: absolute;
     right: 0.75rem;
     top: 0;
+    transition: opacity 0.5s ease-in-out;
 
     .text {
       font: 1rem "Arvo", serif;
@@ -47,5 +65,19 @@ section {
     .icon {
       animation: bounce 0.75s ease-in-out infinite;
     }
+  }
+}
+
+section.expanded {
+  h2 {
+    line-height: 1.5;
+    opacity: 1;
+    padding: 2rem 4rem;
+    transform: scaleY(1);
+  }
+
+  .call-to-action {
+    opacity: 0;
+    pointer-events: none;
   }
 }

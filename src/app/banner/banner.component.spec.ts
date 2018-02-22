@@ -16,7 +16,10 @@ describe("BannerComponent", () => {
   const httpResponseStub = {
     body: [
       {
-        message: "Lorem Ipsum"
+        message: "Header One"
+      },
+      {
+        message: "Header Two"
       }
     ]
   };
@@ -52,7 +55,9 @@ describe("BannerComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("gets its header from the content service", () => {
-    expect(component.header).toBe("Lorem Ipsum");
+  it("gets its headers from the content service", () => {
+    expect(component.headerOne).toBe("Header One");
+    component.onClick();
+    expect(component.headerTwo).toBe("Header Two");
   });
 });
