@@ -1,7 +1,7 @@
+import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { DatePipe } from "@angular/common";
 import { TestBed } from "@angular/core/testing";
-import { async } from "@angular/core/testing";
 
 import { HeaderComponent } from "./header.component";
 

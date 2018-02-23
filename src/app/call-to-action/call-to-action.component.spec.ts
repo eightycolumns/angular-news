@@ -1,6 +1,6 @@
+import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { TestBed } from "@angular/core/testing";
-import { async } from "@angular/core/testing";
 
 import { CallToActionComponent } from "./call-to-action.component";
 

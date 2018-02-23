@@ -1,8 +1,8 @@
+import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { HttpClientModule } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { TestBed } from "@angular/core/testing";
-import { async } from "@angular/core/testing";
 import "rxjs/add/observable/of";
 
 import { BannerComponent } from "./banner.component";
@@ -28,8 +28,8 @@ describe("BannerComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        BannerComponent,
-        CallToActionComponent
+        CallToActionComponent,
+        BannerComponent
       ],
       imports: [
         HttpClientModule
