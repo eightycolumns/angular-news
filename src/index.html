@@ -10,8 +10,25 @@
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
   </script>
+
+  <style>
+    .transitions-disabled * {
+      transition: none !important;
+    }
+  </style>
 </head>
-<body>
+<body class="transitions-disabled">
   <app-root></app-root>
+
+  <script>
+    (function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function enableTransitions() {
+          var body = document.querySelector("body");
+          body.classList.remove("transitions-disabled");
+        }, 100);
+      });
+    })();
+  </script>
 </body>
 </html>
