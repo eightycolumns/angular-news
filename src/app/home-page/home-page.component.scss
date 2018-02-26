@@ -1,0 +1,129 @@
+@import "main.scss";
+
+.home-page {
+  color: $dark-gray;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+
+  aside:first-of-type {
+    width: 20%;
+
+    article {
+      h1 {
+        font: italic bold 1.58rem "Arvo", serif;
+        line-height: 1.67rem;
+      }
+
+      p {
+        font: normal 1rem "Arvo", serif;
+        line-height: 1.25rem;
+      }
+    }
+
+    article:not(:first-of-type) {
+      border-top: 2px solid $light-gray;
+      margin-top: 1rem;
+    }
+  }
+
+  main {
+    box-sizing: border-box;
+    padding-left: 1rem;
+    width: 40%;
+
+    article {
+      h1 {
+        font: italic 1.33rem "Arvo", serif;
+        line-height: 1.67rem;
+      }
+
+      p {
+        font: normal 0.83rem "Arvo", serif;
+        line-height: 1.25rem;
+      }
+    }
+
+    article:first-of-type h1 {
+      font-weight: normal;
+    }
+
+    article:not(:first-of-type) h1 {
+      font-weight: bold;
+    }
+  }
+
+  aside:last-of-type {
+    box-sizing: border-box;
+    padding-left: 1rem;
+    width: 40%;
+
+    .opinion {
+      display: flex;
+      flex-wrap: wrap;
+
+      h1 {
+        font: italic normal 1.33rem "Arvo", serif;
+        text-align: center;
+        width: 100%;
+      }
+
+      article {
+        width: 50%;
+
+        h2 {
+          font: italic normal 1rem "Arvo", serif;
+          line-height: 1.25rem;
+        }
+
+        p {
+          font: 0.83rem "Arvo", serif;
+          line-height: 1.25rem;
+        }
+      }
+
+      article:not(:first-of-type) {
+        box-sizing: border-box;
+        padding-left: 1rem;
+      }
+    }
+
+    .travel {
+      h1 {
+        font: bold 1rem "Arvo", serif;
+        overflow: hidden;
+      }
+
+      h1::after {
+        bottom: 0.1rem;
+        color: $light-gray;
+        content: repeat("\f054", 256);
+        font-family: FontAwesome;
+        font-size: 0.5rem;
+        margin-left: 0.25rem;
+        position: relative;
+      }
+
+      article {
+        h2 {
+          font: bold 1rem "Arvo", serif;
+          line-height: 1.25rem;
+        }
+
+        p {
+          font: 0.83rem "Arvo", serif;
+          line-height: 1.25rem;
+        }
+      }
+    }
+  }
+
+  h1,
+  h2 {
+    margin-top: 1rem;
+  }
+
+  p {
+    margin-top: 0.25rem;
+  }
+}

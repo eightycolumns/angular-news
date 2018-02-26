@@ -2,59 +2,59 @@
 
 $transition-speed: 0.5s ease-in-out;
 
-section {
+.banner {
   background-color: $light-gray;
   margin: 0 auto;
   position: relative;
   text-align: center;
   width: 90%;
+
+  h1,
+  h2 {
+    color: $dark-gray;
+    font: italic bold 1.5rem "Arvo", serif;
+  }
+
+  h1 {
+    line-height: 1.5;
+    padding: 2rem 4rem;
+  }
+
+  h2 {
+    line-height: 0;
+    opacity: 0;
+    padding: 0 4rem;
+    transform: scaleY(0);
+    transition: all $transition-speed;
+  }
+
+  app-call-to-action {
+    position: absolute;
+    right: 0.75rem;
+    transition: all $transition-speed;
+  }
+
+  app-call-to-action[action="expand"] {
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+    top: 0;
+  }
+
+  app-call-to-action[action="hide"] {
+    bottom: 0;
+    cursor: default;
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0);
+  }
+
+  .hidden {
+    opacity: 0;
+  }
 }
 
-h1,
-h2 {
-  color: $dark-gray;
-  font: italic bold 1.5rem "Arvo", serif;
-}
-
-h1 {
-  line-height: 1.5;
-  padding: 2rem 4rem;
-}
-
-h2 {
-  line-height: 0;
-  opacity: 0;
-  padding: 0 4rem;
-  transform: scaleY(0);
-  transition: all $transition-speed;
-}
-
-app-call-to-action {
-  position: absolute;
-  right: 0.75rem;
-  transition: all $transition-speed;
-}
-
-app-call-to-action[action="expand"] {
-  cursor: pointer;
-  opacity: 1;
-  pointer-events: auto;
-  top: 0;
-}
-
-app-call-to-action[action="hide"] {
-  bottom: 0;
-  cursor: default;
-  opacity: 0;
-  pointer-events: none;
-  transform: scaleY(0);
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.expanded {
+.banner.expanded {
   h2 {
     line-height: 1.5;
     opacity: 1;

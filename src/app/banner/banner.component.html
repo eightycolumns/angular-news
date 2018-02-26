@@ -1,4 +1,4 @@
-<section [class.expanded]="isExpanded">
+<div class="banner" [class.expanded]="isExpanded">
   <h1>{{headerOne}}</h1>
 
   <app-call-to-action action="expand" (click)="toggleExpansion()">
@@ -10,4 +10,4 @@
     <app-call-to-action action="hide" (click)="toggleExpansion()">
     </app-call-to-action>
   </div>
-</section>
+</div>

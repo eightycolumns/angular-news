@@ -1,0 +1,9 @@
+@function repeat($string, $n) {
+  $result: "";
+
+  @for $i from 0 to $n {
+    $result: $result + $string;
+  }
+
+  @return $result;
+}
