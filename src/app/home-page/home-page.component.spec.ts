@@ -7,6 +7,7 @@ import { BannerComponent } from "../banner/banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../content.service";
 import { HomePageComponent } from "./home-page.component";
+import { SummaryPipe } from "../summary.pipe";
 
 describe("HomePageComponent", () => {
   let component: HomePageComponent;
@@ -17,7 +18,8 @@ describe("HomePageComponent", () => {
       declarations: [
         BannerComponent,
         CallToActionComponent,
-        HomePageComponent
+        HomePageComponent,
+        SummaryPipe
       ],
       imports: [
         HttpClientModule

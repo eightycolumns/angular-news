@@ -14,16 +14,14 @@ describe("BannerComponent", () => {
   let contentService: ContentService;
   let fixture: ComponentFixture<BannerComponent>;
 
-  const httpResponseStub = {
-    body: [
-      {
-        message: "Header One"
-      },
-      {
-        message: "Header Two"
-      }
-    ]
-  };
+  const httpResponseStub = [
+    {
+      message: "Header One"
+    },
+    {
+      message: "Header Two"
+    }
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -58,7 +56,7 @@ describe("BannerComponent", () => {
   });
 
   it("gets its headers from the content service", () => {
-    expect(component.headerOne).toBe("Header One");
-    expect(component.headerTwo).toBe("Header Two");
+    expect(component.banners[0].message).toBe("Header One");
+    expect(component.banners[1].message).toBe("Header Two");
   });
 });

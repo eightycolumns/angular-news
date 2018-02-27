@@ -8,6 +8,7 @@ import { BannerComponent } from "./banner/banner.component";
 import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { HeaderComponent } from "./header/header.component";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { SummaryPipe } from "./summary.pipe";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -17,7 +18,8 @@ describe("AppComponent", () => {
         BannerComponent,
         CallToActionComponent,
         HeaderComponent,
-        HomePageComponent
+        HomePageComponent,
+        SummaryPipe
       ],
       imports: [
         AppRoutingModule

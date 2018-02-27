@@ -10,6 +10,7 @@ import { CallToActionComponent } from "./call-to-action/call-to-action.component
 import { ContentService } from "./content.service";
 import { HeaderComponent } from "./header/header.component";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { SummaryPipe } from "./summary.pipe";
 
 @NgModule({
   bootstrap: [
@@ -20,7 +21,8 @@ import { HomePageComponent } from "./home-page/home-page.component";
     BannerComponent,
     CallToActionComponent,
     HeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    SummaryPipe
   ],
   imports: [
     AppRoutingModule,

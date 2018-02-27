@@ -1,13 +1,11 @@
-<div class="banner" [class.expanded]="isExpanded">
-  <h1>{{headerOne}}</h1>
+<div *ngIf="banners" class="banner" [class.expanded]="isExpanded">
+  <h1>{{banners[0].message}}</h1>
 
   <app-call-to-action action="expand" (click)="toggleExpansion()">
   </app-call-to-action>
 
-  <div [class.hidden]="!hasBeenExpanded">
-    <h2>{{headerTwo}}</h2>
+  <h2>{{banners[1].message}}</h2>
 
-    <app-call-to-action action="hide" (click)="toggleExpansion()">
-    </app-call-to-action>
-  </div>
+  <app-call-to-action action="hide" (click)="toggleExpansion()">
+  </app-call-to-action>
 </div>

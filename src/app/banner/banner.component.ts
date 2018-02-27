@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 
+import { Banner } from "../banner";
 import { ContentService } from "../content.service";
 
 @Component({
@@ -11,22 +12,16 @@ import { ContentService } from "../content.service";
   ]
 })
 export class BannerComponent implements OnInit {
-  public headerOne: string;
-  public headerTwo: string;
+  public banners: Banner[];
   public isExpanded = false;
-  public hasBeenExpanded = false;
 
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.contentService.getBanners().subscribe(data => {
-      this.headerOne = data.body[0].message;
-      this.headerTwo = data.body[1].message;
-    });
+    this.contentService.getBanners().subscribe(data => this.banners = data);
   }
 
   public toggleExpansion(): void {
-    this.hasBeenExpanded = true;
     this.isExpanded = !this.isExpanded;
   }
 }
