@@ -20,7 +20,12 @@ export class SummaryPipe implements PipeTransform {
     }
 
     const placeline = `<span class="placeline">${article.location}</span>`;
-    const body = article.snippet.replace("<br><br>", "</p><p>");
+
+    let body = article.snippet.replace("<br><br>", "</p><p>");
+
+    if (article.nsfw) {
+      body += " <span class='nsfw'>[NSFW]</span>";
+    }
 
     return `<h1>${headline}</h1><p>${placeline} ${body}</p>`;
   }
