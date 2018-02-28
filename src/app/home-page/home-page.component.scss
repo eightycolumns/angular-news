@@ -32,6 +32,24 @@
     padding-left: 1rem;
     width: 40%;
 
+    .video {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+
+      video {
+        background-color: $dark-gray;
+        width: 100%;
+      }
+
+      .overlay {
+        color: white;
+        font: 1rem "Arvo", serif;
+        position: absolute;
+      }
+    }
+
     article {
       h1 {
         font: italic 1.33rem "Arvo", serif;

@@ -14,10 +14,14 @@
   </aside>
 
   <main>
-    <article
-      *ngIf="sportsArticles"
-      [innerHtml]="sportsArticles[0] | summary">
-    </article>
+    <div *ngIf="sportsArticles">
+      <div *ngIf="sportsArticles[0].hasVideoPlaceholder" class="video">
+        <video></video>
+        <div class="overlay">[VIDEO]</div>
+      </div>
+
+      <article [innerHtml]="sportsArticles[0] | summary"></article>
+    </div>
 
     <article
       *ngIf="fashionArticles"
