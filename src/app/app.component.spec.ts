@@ -8,7 +8,7 @@ import { BannerComponent } from "./banner/banner.component";
 import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { HeaderComponent } from "./header/header.component";
 import { HomePageComponent } from "./home-page/home-page.component";
-import { SummaryPipe } from "./summary.pipe";
+import { SummaryPipe } from "./common/pipe/summary.pipe";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {

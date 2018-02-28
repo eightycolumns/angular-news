@@ -1,7 +1,7 @@
 import { Pipe } from "@angular/core";
 import { PipeTransform } from "@angular/core";
 
-import { Article } from "./article";
+import { Article } from "../interface/article.interface";
 
 @Pipe({
   name: "summary"

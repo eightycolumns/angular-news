@@ -3,10 +3,10 @@ import { Observable } from "rxjs/Observable";
 import { OnInit } from "@angular/core";
 import "rxjs/add/observable/zip";
 
-import { Article } from "../article";
-import { Category } from "../category";
-import { ContentService } from "../content.service";
-import { SummaryPipe } from "../summary.pipe";
+import { Article } from "../common/interface/article.interface";
+import { Category } from "../common/interface/category.interface";
+import { ContentService } from "../common/service/content.service";
+import { SummaryPipe } from "../common/pipe/summary.pipe";
 
 @Component({
   selector: "app-home-page",

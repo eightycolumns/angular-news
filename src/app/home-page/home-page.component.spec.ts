@@ -5,9 +5,9 @@ import { TestBed } from "@angular/core/testing";
 
 import { BannerComponent } from "../banner/banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
-import { ContentService } from "../content.service";
+import { ContentService } from "../common/service/content.service";
 import { HomePageComponent } from "./home-page.component";
-import { SummaryPipe } from "../summary.pipe";
+import { SummaryPipe } from "../common/pipe/summary.pipe";
 
 describe("HomePageComponent", () => {
   let component: HomePageComponent;

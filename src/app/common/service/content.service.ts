@@ -2,9 +2,9 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 
-import { Article } from "./article";
-import { Banner } from "./banner";
-import { Category } from "./category";
+import { Article } from "../interface/article.interface";
+import { Banner } from "../interface/banner.interface";
+import { Category } from "../interface/category.interface";
 
 @Injectable()
 export class ContentService {

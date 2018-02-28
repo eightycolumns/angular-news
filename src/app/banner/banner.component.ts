@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 
-import { Banner } from "../banner";
-import { ContentService } from "../content.service";
+import { Banner } from "../common/interface/banner.interface";
+import { ContentService } from "../common/service/content.service";
 
 @Component({
   selector: "app-banner",

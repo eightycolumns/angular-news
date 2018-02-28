@@ -7,7 +7,7 @@ import "rxjs/add/observable/of";
 
 import { BannerComponent } from "./banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
-import { ContentService } from "../content.service";
+import { ContentService } from "../common/service/content.service";
 
 describe("BannerComponent", () => {
   let component: BannerComponent;
