@@ -3,10 +3,13 @@ import { Observable } from "rxjs/Observable";
 import { OnInit } from "@angular/core";
 import "rxjs/add/observable/zip";
 
-import { Article } from "../common/interface/article.interface";
-import { Category } from "../common/interface/category.interface";
+import { Article } from "../common/interface/article";
+import { Category } from "../common/interface/category";
 import { ContentService } from "../common/service/content.service";
-import { SummaryPipe } from "../common/pipe/summary.pipe";
+import { FeaturedSection } from "../common/interface/featured-section";
+import { HeadlinePipe } from "../common/pipe/headline.pipe";
+import { ImagesPipe } from "../common/pipe/images.pipe";
+import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 
 @Component({
   selector: "app-home-page",
@@ -16,52 +19,19 @@ import { SummaryPipe } from "../common/pipe/summary.pipe";
   ]
 })
 export class HomePageComponent implements OnInit {
-  public businessArticles: Article[];
-  public fashionArticles: Article[];
-  public opinionArticles: Article[];
-  public sportsArticles: Article[];
-  public travelArticles: Article[];
-  public videoArticles: Article[];
-  public worldArticles: Article[];
+  public aside: FeaturedSection;
+  public main: FeaturedSection;
+  public opinion: FeaturedSection;
+  public travel: FeaturedSection;
 
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.contentService.getArticlesByCategory("business").subscribe(
-      data => this.businessArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("fashion").subscribe(
-      data => this.fashionArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("opinion").subscribe(
-      data => this.opinionArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("sports").subscribe(
-      data => this.sportsArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("travel").subscribe(
-      data => this.travelArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("video").subscribe(
-      data => this.videoArticles = data
-    );
-
-    this.contentService.getArticlesByCategory("world").subscribe(
-      data => this.worldArticles = data
-    );
-  }
-
-  public opinionArticleSummary(i: number): string {
-    const article = this.opinionArticles[i];
-
-    const location = `<span class="location">${article.location}</span>`;
-    const summary = article.snippet.replace("<br><br>", "</p><p>");
-
-    return `<p>${location}${summary}</p>`;
+    this.contentService.getFeaturedSections().subscribe(data => {
+      this.aside = data.find(section => section.description === "Aside");
+      this.main = data.find(section => section.description === "Main");
+      this.opinion = data.find(section => section.description === "Opinion");
+      this.travel = data.find(section => section.description === "Travel");
+    });
   }
 }

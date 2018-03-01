@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { OnInit } from "@angular/core";
 
-import { Banner } from "../common/interface/banner.interface";
+import { Banner } from "../common/interface/banner";
 import { ContentService } from "../common/service/content.service";
 
 @Component({

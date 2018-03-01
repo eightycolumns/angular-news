@@ -6,8 +6,11 @@ import { TestBed } from "@angular/core/testing";
 import { BannerComponent } from "../banner/banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../common/service/content.service";
+import { FullStoryPipe } from "../common/pipe/full-story.pipe";
+import { HeadlinePipe } from "../common/pipe/headline.pipe";
 import { HomePageComponent } from "./home-page.component";
-import { SummaryPipe } from "../common/pipe/summary.pipe";
+import { ImagesPipe } from "../common/pipe/images.pipe";
+import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 
 describe("HomePageComponent", () => {
   let component: HomePageComponent;
@@ -18,8 +21,11 @@ describe("HomePageComponent", () => {
       declarations: [
         BannerComponent,
         CallToActionComponent,
+        FullStoryPipe,
+        HeadlinePipe,
         HomePageComponent,
-        SummaryPipe
+        ImagesPipe,
+        PlacelinePipe
       ],
       imports: [
         HttpClientModule

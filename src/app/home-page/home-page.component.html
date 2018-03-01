@@ -1,52 +1,117 @@
 <app-banner></app-banner>
 
 <div class="home-page">
-  <aside>
-    <article
-      *ngIf="worldArticles"
-      [innerHtml]="worldArticles[0] | summary">
+  <aside *ngIf="aside">
+    <article>
+      <h3 class="headline" [innerHtml]="aside.articles[0] | headline"></h3>
+
+      <p class="body">
+        <span class="placeline">{{aside.articles[0] | placeline}}</span>
+        {{aside.articles[0].snippet}}
+        <span *ngIf="aside.articles[0].nsfw" class="nsfw">[NSFW]</span>
+      </p>
     </article>
 
-    <article
-      *ngIf="businessArticles"
-      [innerHtml]="businessArticles[0] | summary">
+    <article>
+      <h3 class="headline" [innerHtml]="aside.articles[1] | headline"></h3>
+
+      <p class="body">
+        <span class="placeline">{{aside.articles[1] | placeline}}</span>
+        {{aside.articles[1].snippet}}
+        <span *ngIf="aside.articles[1].nsfw" class="nsfw">[NSFW]</span>
+      </p>
     </article>
   </aside>
 
-  <main>
-    <div *ngIf="sportsArticles">
-      <div *ngIf="sportsArticles[0].hasVideoPlaceholder" class="video">
-        <video></video>
-        <div class="overlay">[VIDEO]</div>
+  <main *ngIf="main">
+    <article>
+      <div *ngIf="main.articles[0].hasVideoPlaceholder" class="video">
+        [VIDEO]
       </div>
 
-      <article [innerHtml]="sportsArticles[0] | summary"></article>
-    </div>
+      <h3 class="headline" [innerHtml]="main.articles[0] | headline"></h3>
 
-    <article
-      *ngIf="fashionArticles"
-      [innerHtml]="fashionArticles[0] | summary">
+      <p class="body">
+        <span class="placeline">{{main.articles[0] | placeline}}</span>
+        {{main.articles[0].snippet}}
+        <span *ngIf="main.articles[0].nsfw" class="nsfw">[NSFW]</span>
+      </p>
     </article>
 
-    <article
-      *ngIf="videoArticles"
-      [innerHtml]="videoArticles[0] | summary">
+    <article>
+      <h3 class="headline" [innerHtml]="main.articles[1] | headline"></h3>
+
+      <p class="body">
+        <span class="placeline">{{main.articles[1] | placeline}}</span>
+        {{main.articles[1].snippet}}
+        <span *ngIf="main.articles[1].nsfw" class="nsfw">[NSFW]</span>
+      </p>
+    </article>
+
+    <article>
+      <div *ngIf="main.articles[2].numberOfImages > 0" class="photo">
+        [PHOTO]
+      </div>
+
+      <h3 class="headline" [innerHtml]="main.articles[2] | headline"></h3>
+
+      <p class="body">
+        <span class="placeline">{{main.articles[2] | placeline}}</span>
+        {{main.articles[2].snippet}}
+        <span *ngIf="main.articles[2].nsfw" class="nsfw">[NSFW]</span>
+      </p>
     </article>
   </main>
 
   <aside>
-    <section *ngIf="opinionArticles" class="opinion">
-      <h1>The Opinion Pages</h1>
+    <section *ngIf="opinion" class="opinion">
+      <h2>The Opinion Pages</h2>
 
-      <article [innerHtml]="opinionArticles[0] | summary"></article>
-      <article [innerHtml]="opinionArticles[1] | summary"></article>
+      <article>
+        <h3 class="headline" [innerHtml]="opinion.articles[0] | headline"></h3>
+
+        <p class="body">
+          <span class="placeline">{{opinion.articles[0] | placeline}}</span>
+          <span [innerHtml]="opinion.articles[0] | fullStory"></span>
+          <span *ngIf="opinion.articles[0].nsfw" class="nsfw">[NSFW]</span>
+        </p>
+      </article>
+
+      <article>
+        <h3 class="headline" [innerHtml]="opinion.articles[1] | headline"></h3>
+
+        <p class="body">
+          <span class="placeline">{{opinion.articles[1] | placeline}}</span>
+          <span [innerHtml]="opinion.articles[1] | fullStory"></span>
+          <span *ngIf="opinion.articles[1].nsfw" class="nsfw">[NSFW]</span>
+        </p>
+      </article>
     </section>
 
-    <section *ngIf="travelArticles" class="travel">
-      <h1>TRAVEL</h1>
+    <section *ngIf="travel" class="travel">
+      <h2>TRAVEL</h2>
 
-      <article [innerHtml]="travelArticles[0] | summary"></article>
-      <article [innerHtml]="travelArticles[1] | summary"></article>
+      <article>
+        <h3 class="headline" [innerHtml]="travel.articles[0] | headline"></h3>
+
+        <div *ngFor="let image of (travel.articles[0] | images:2)" class="photo">
+          [PHOTO]
+        </div>
+      </article>
+
+      <article>
+        <h3 class="headline" [innerHtml]="travel.articles[1] | headline"></h3>
+
+        <div *ngIf="travel.articles[1].numberOfImages > 0" class="photo">
+          [PHOTO]
+        </div>
+
+        <p class="body">
+          <span class="placeline">{{travel.articles[1] | placeline}}</span>
+          {{travel.articles[1].snippet}}
+          <span *ngIf="travel.articles[1].nsfw" class="nsfw">[NSFW]</span>
+        </p>
+      </article>
     </section>
   </aside>
 </div>
