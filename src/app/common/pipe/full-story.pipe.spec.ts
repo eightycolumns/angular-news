@@ -4,11 +4,11 @@ describe("FullStoryPipe", () => {
   const pipe = new FullStoryPipe();
 
   const articleStub = {
-    categoryId: 0,
+    categoryId: 1,
     fullStory: "Paragraph<br><br>Paragraph",
     hasVideoPlaceholder: false,
     headLine: "Headline",
-    id: 0,
+    id: 1,
     location: "Location",
     nsfw: false,
     relatedArticleIds: [],

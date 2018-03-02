@@ -4,11 +4,11 @@ describe("ImagesPipe", () => {
   const pipe = new ImagesPipe();
 
   const articleStub = {
-    categoryId: 0,
+    categoryId: 1,
     fullStory: "Full Story",
     hasVideoPlaceholder: false,
     headLine: "Headline",
-    id: 0,
+    id: 1,
     location: "Location",
     nsfw: false,
     numberOfImages: 2,

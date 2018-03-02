@@ -16,9 +16,11 @@ describe("BannerComponent", () => {
 
   const httpResponseStub = [
     {
+      id: 1,
       message: "Message One"
     },
     {
+      id: 2,
       message: "Message Two"
     }
   ];

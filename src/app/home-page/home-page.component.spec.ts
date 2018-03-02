@@ -20,27 +20,38 @@ describe("HomePageComponent", () => {
   let fixture: ComponentFixture<HomePageComponent>;
 
   const articleStub = {
+    categoryId: 1,
     fullStory: "Full Story",
+    hasVideoPlaceholder: false,
     headLine: "Headline",
-    location: "Location"
+    id: 1,
+    location: "Location",
+    nsfw: false,
+    numberOfImages: 0,
+    relatedArticleIds: [],
+    snippet: "Snippet"
   };
 
   const httpResponseStub = [
     {
+      articles: (new Array(2)).fill(articleStub),
       description: "Aside",
-      articles: (new Array(2)).fill(articleStub)
+      id: 1
     },
     {
+      articles: (new Array(3)).fill(articleStub),
       description: "Main",
-      articles: (new Array(3)).fill(articleStub)
+      id: 2
     },
     {
+      articles: (new Array(2)).fill(articleStub),
       description: "Opinion",
-      articles: (new Array(2)).fill(articleStub)
+      id: 3
     },
     {
+      articles: (new Array(2)).fill(articleStub),
       description: "Travel",
-      articles: (new Array(2)).fill(articleStub)
+      id: 4
     },
   ];
 
