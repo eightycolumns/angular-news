@@ -16,10 +16,10 @@ describe("BannerComponent", () => {
 
   const httpResponseStub = [
     {
-      message: "Header One"
+      message: "Message One"
     },
     {
-      message: "Header Two"
+      message: "Message Two"
     }
   ];
 
@@ -55,8 +55,8 @@ describe("BannerComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("gets its headers from the content service", () => {
-    expect(component.banners[0].message).toBe("Header One");
-    expect(component.banners[1].message).toBe("Header Two");
+  it("gets its content from the content service", () => {
+    expect(component.banners[0].message).toBe("Message One");
+    expect(component.banners[1].message).toBe("Message Two");
   });
 });
