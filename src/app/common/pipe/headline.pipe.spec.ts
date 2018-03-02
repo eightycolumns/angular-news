@@ -1,7 +1,7 @@
 import { HeadlinePipe } from "./headline.pipe";
 
 describe("HeadlinePipe", () => {
-  let pipe: HeadlinePipe;
+  const pipe = new HeadlinePipe();
 
   const articleStub = {
     categoryId: 0,
@@ -14,10 +14,6 @@ describe("HeadlinePipe", () => {
     relatedArticleIds: [],
     snippet: "Snippet"
   };
-
-  beforeEach(() => {
-    pipe = new HeadlinePipe();
-  });
 
   it("creates an instance", () => {
     expect(pipe).toBeTruthy();

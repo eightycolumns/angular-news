@@ -1,7 +1,7 @@
 import { FullStoryPipe } from "./full-story.pipe";
 
 describe("FullStoryPipe", () => {
-  let pipe: FullStoryPipe;
+  const pipe = new FullStoryPipe();
 
   const articleStub = {
     categoryId: 0,
@@ -14,10 +14,6 @@ describe("FullStoryPipe", () => {
     relatedArticleIds: [],
     snippet: "Snippet"
   };
-
-  beforeEach(() => {
-    pipe = new FullStoryPipe();
-  });
 
   it("creates an instance", () => {
     expect(pipe).toBeTruthy();
