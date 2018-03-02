@@ -13,7 +13,7 @@ describe("FullStoryPipe", () => {
     nsfw: false,
     relatedArticleIds: [],
     snippet: "Snippet"
-  }
+  };
 
   beforeEach(() => {
     pipe = new FullStoryPipe();

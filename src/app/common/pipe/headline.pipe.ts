@@ -13,10 +13,10 @@ export class HeadlinePipe implements PipeTransform {
     if (headline.indexOf(":") < 0) {
       return headline;
     } else {
-      const preColon = headline.split(":")[0];
-      const postColon = headline.split(":")[1];
+      const beforeColon = headline.split(":")[0];
+      const afterColon = headline.split(":")[1];
 
-      return `<span>${preColon}:</span><span>${postColon}</span>`;
+      return `<span>${beforeColon}:</span><span>${afterColon}</span>`;
     }
   }
 }
