@@ -16,11 +16,8 @@ describe("ContentService", () => {
     });
   });
 
-  it("should be created", inject(
-    [
-      ContentService
-    ],
-    (contentService: ContentService) => {
+  it("creates an instance", inject(
+    [ ContentService ], (contentService: ContentService) => {
       expect(contentService).toBeTruthy();
     }
   ));

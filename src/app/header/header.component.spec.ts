@@ -26,7 +26,7 @@ describe("HeaderComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it("creates an instance", () => {
     expect(component).toBeTruthy();
   });
 });
