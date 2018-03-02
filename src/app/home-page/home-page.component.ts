@@ -3,13 +3,8 @@ import { Observable } from "rxjs/Observable";
 import { OnInit } from "@angular/core";
 import "rxjs/add/observable/zip";
 
-import { Article } from "../common/interface/article";
-import { Category } from "../common/interface/category";
 import { ContentService } from "../common/service/content.service";
 import { FeaturedSection } from "../common/interface/featured-section";
-import { HeadlinePipe } from "../common/pipe/headline.pipe";
-import { ImagesPipe } from "../common/pipe/images.pipe";
-import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 
 @Component({
   selector: "app-home-page",
