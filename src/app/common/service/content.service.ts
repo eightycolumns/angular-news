@@ -13,17 +13,9 @@ export class ContentService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getArticlesByCategory(shortName: string): Observable<Article[]> {
-    const articles = this.getArticles();
-    const categories = this.getCategories();
-
-    return Observable.zip(articles, categories, (articles, categories) => {
-      const category = categories.find(
-        category => category.shortName === shortName
-      );
-
-      return articles.filter(article => article.categoryId === category.id);
-    });
+  public getArticles(id: number): Observable<Article[]> {
+    const url = `${this.baseUrl}/Categories/${id}/Articles`;
+    return this.httpClient.get<Article[]>(url);
   }
 
   public getBanners(): Observable<Banner[]> {
@@ -39,10 +31,5 @@ export class ContentService {
   public getFeaturedSections(): Observable<FeaturedSection[]> {
     const url = `${this.baseUrl}/FeaturedSections`;
     return this.httpClient.get<FeaturedSection[]>(url);
-  }
-
-  private getArticles(): Observable<Article[]> {
-    const url = `${this.baseUrl}/Articles`;
-    return this.httpClient.get<Article[]>(url);
   }
 }
