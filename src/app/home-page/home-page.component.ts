@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { OnInit } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 import "rxjs/add/observable/zip";
 
 import { ContentService } from "../common/service/content.service";
@@ -19,9 +20,14 @@ export class HomePageComponent implements OnInit {
   public opinion: FeaturedSection;
   public travel: FeaturedSection;
 
-  constructor(private contentService: ContentService) {}
+  constructor(
+    private contentService: ContentService,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle("CapTech News");
+
     this.contentService.getFeaturedSections().subscribe(data => {
       this.aside = data.find(section => section.description === "Aside");
       this.main = data.find(section => section.description === "Main");
