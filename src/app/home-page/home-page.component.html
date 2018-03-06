@@ -25,9 +25,7 @@
 
   <main *ngIf="main">
     <article>
-      <div *ngIf="main.articles[0].hasVideoPlaceholder" class="video">
-        [VIDEO]
-      </div>
+      <div *ngIf="main.articles[0].hasVideoPlaceholder" class="video">[VIDEO]</div>
 
       <h3 class="headline" [innerHtml]="main.articles[0] | headline"></h3>
 
@@ -49,9 +47,7 @@
     </article>
 
     <article>
-      <div *ngIf="main.articles[2].numberOfImages > 0" class="photo">
-        [PHOTO]
-      </div>
+      <div *ngIf="main.articles[2].numberOfImages > 0" class="photo">[PHOTO]</div>
 
       <h3 class="headline" [innerHtml]="main.articles[2] | headline"></h3>
 
@@ -82,7 +78,7 @@
 
         <p class="body">
           <span class="placeline">{{opinion.articles[1] | placeline}}</span>
-          <span [innerHtml]="opinion.articles[1] | fullStory"></span>
+          <span [innerHtml]="opinion.articles[1] | fullStory:opinionFullStoryOptions"></span>
           <span *ngIf="opinion.articles[1].nsfw" class="nsfw">[NSFW]</span>
         </p>
       </article>
@@ -94,17 +90,13 @@
       <article>
         <h3 class="headline" [innerHtml]="travel.articles[0] | headline"></h3>
 
-        <div *ngFor="let image of (travel.articles[0] | images:2)" class="photo">
-          [PHOTO]
-        </div>
+        <div *ngFor="let image of (travel.articles[0] | images:2)" class="photo">[PHOTO]</div>
       </article>
 
       <article>
         <h3 class="headline" [innerHtml]="travel.articles[1] | headline"></h3>
 
-        <div *ngIf="travel.articles[1].numberOfImages > 0" class="photo">
-          [PHOTO]
-        </div>
+        <div *ngIf="travel.articles[1].numberOfImages > 0" class="photo">[PHOTO]</div>
 
         <p class="body">
           <span class="placeline">{{travel.articles[1] | placeline}}</span>

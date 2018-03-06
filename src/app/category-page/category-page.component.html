@@ -1,0 +1,42 @@
+<div *ngIf="articles && articles.length > 0" class="category-page">
+  <main [class.full-width]="articles.length < 2">
+    <article>
+      <h2 class="headline" [innerHtml]="articles[0] | headline"></h2>
+
+      <div *ngIf="displayVideo(articles[0])" class="video">[VIDEO]</div>
+      <div *ngIf="displayPhoto(articles[0])" class="photo">[PHOTO]</div>
+
+      <p *ngIf="displayMultimedia(articles[0])" class="caption">
+        {{articles[0] | firstSentence}}
+      </p>
+
+      <p class="body">
+        <span class="placeline">{{articles[0] | placeline}}</span>
+
+        <span
+          *ngIf="displayMultimedia(articles[0])"
+          [innerHtml]="articles[0] | fullStory:mainFullStoryOptions">
+        </span>
+
+        <span
+          *ngIf="!displayMultimedia(articles[0])"
+          [innerHtml]="articles[0] | fullStory">
+        </span>
+
+        <span *ngIf="articles[0].nsfw" class="nsfw">[NSFW]</span>
+      </p>
+    </article>
+  </main>
+
+  <aside *ngIf="articles.length > 1">
+    <article *ngFor="let article of articles.slice(1)">
+      <h2 class="headline" [innerHtml]="article | headline"></h2>
+
+      <p class="body">
+        <span class="placeline">{{article | placeline}}</span>
+        <span [innerHtml]="article | fullStory:asideFullStoryOptions"></span>
+        <span *ngIf="article.nsfw" class="nsfw">[NSFW]</span>
+      </p>
+    </article>
+  </aside>
+</div>

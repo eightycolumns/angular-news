@@ -10,6 +10,10 @@ import { Article } from "../common/interface/article";
 import { Category } from "../common/interface/category";
 import { CategoryPageComponent } from "./category-page.component";
 import { ContentService } from "../common/service/content.service";
+import { FirstSentencePipe } from "../common/pipe/first-sentence.pipe";
+import { FullStoryPipe } from "../common/pipe/full-story.pipe";
+import { HeadlinePipe } from "../common/pipe/headline.pipe";
+import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 
 describe("CategoryPageComponent", () => {
   let component: CategoryPageComponent;
@@ -80,9 +84,14 @@ describe("CategoryPageComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CategoryPageComponent
+        CategoryPageComponent,
+        FirstSentencePipe,
+        FullStoryPipe,
+        HeadlinePipe,
+        PlacelinePipe
       ],
       providers: [
+        FirstSentencePipe,
         {
           provide: ActivatedRoute,
           useValue: activatedRouteStub

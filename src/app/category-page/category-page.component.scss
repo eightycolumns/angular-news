@@ -1,0 +1,102 @@
+@import "main.scss";
+
+.category-page ::ng-deep {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+
+  main {
+    box-sizing: border-box;
+    padding-right: 1rem;
+
+    article {
+      .headline {
+        font: italic bold 2.17rem "Arvo", serif;
+        line-height: 2.33rem;
+      }
+
+      .photo,
+      .video {
+        height: 0;
+        margin-top: 1rem;
+        padding: 15% 0;
+      }
+
+      .caption {
+        font: italic 0.83rem "Arvo", serif;
+        line-height: 1.25rem;
+      }
+
+      .body {
+        font: 0.83rem "Arvo", serif;
+        line-height: 1.25rem;
+      }
+    }
+  }
+
+  main.full-width {
+    width: 100%;
+  }
+
+  main:not(.full-width) {
+    width: 60%;
+  }
+
+  aside {
+    border-left: 2px solid $light-gray;
+    box-sizing: border-box;
+    color: $medium-gray;
+    padding-left: 1rem;
+    width: 40%;
+
+    article {
+      .headline {
+        font: italic normal 1.33rem "Arvo", serif;
+        line-height: 1.5rem;
+      }
+
+      .body {
+        font: 1rem "Arvo", serif;
+        line-height: 1.25rem;
+      }
+
+      .photo {
+        height: 0;
+        margin: 0.5rem 0;
+        padding: 20% 0;
+      }
+    }
+  }
+
+  article {
+    margin-top: 1rem;
+
+    .photo,
+    .video {
+      align-items: center;
+      background-color: $dark-gray;
+      color: white;
+      display: flex;
+      font: 1rem "Arvo", serif;
+      justify-content: center;
+    }
+
+    .caption {
+      margin-top: 0.5rem;
+    }
+
+    .body {
+      margin-top: 1rem;
+
+      .placeline {
+        font-weight: bold;
+        margin-right: 0.25rem;
+      }
+
+      .indent {
+        display: inline-block;
+        width: 2rem;
+      }
+    }
+  }
+}

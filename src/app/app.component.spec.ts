@@ -7,6 +7,7 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { BannerComponent } from "./banner/banner.component";
 import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
+import { FirstSentencePipe } from "./common/pipe/first-sentence.pipe";
 import { FullStoryPipe } from "./common/pipe/full-story.pipe";
 import { HeaderComponent } from "./header/header.component";
 import { HeadlinePipe } from "./common/pipe/headline.pipe";
@@ -22,6 +23,7 @@ describe("AppComponent", () => {
         BannerComponent,
         CallToActionComponent,
         CategoryPageComponent,
+        FirstSentencePipe,
         FullStoryPipe,
         HeaderComponent,
         HeadlinePipe,

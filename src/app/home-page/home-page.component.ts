@@ -20,10 +20,14 @@ export class HomePageComponent implements OnInit {
   public opinion: FeaturedSection;
   public travel: FeaturedSection;
 
+  public opinionFullStoryOptions: string;
+
   constructor(
     private contentService: ContentService,
     private titleService: Title
-  ) {}
+  ) {
+    this.opinionFullStoryOptions = "INSERT_PHOTO";
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle("CapTech News");

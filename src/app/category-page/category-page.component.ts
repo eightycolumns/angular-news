@@ -19,13 +19,18 @@ import { ContentService } from "../common/service/content.service";
 })
 export class CategoryPageComponent implements OnInit {
   public articles: Article[];
+  public mainFullStoryOptions: string;
+  public asideFullStoryOptions: string;
 
   constructor(
     public titleService: Title,
     private activatedRoute: ActivatedRoute,
     private contentService: ContentService,
     private router: Router
-  ) {}
+  ) {
+    this.mainFullStoryOptions = "DELETE_FIRST_SENTENCE";
+    this.asideFullStoryOptions = "INDENT_AFTER_LINE_BREAKS|INSERT_PHOTO";
+  }
 
   ngOnInit(): void {
     this.contentService.getCategories().subscribe((categories: Category[]) => {
@@ -45,5 +50,17 @@ export class CategoryPageComponent implements OnInit {
         }
       });
     });
+  }
+
+  public displayMultimedia(article: Article): boolean {
+    return article.hasVideoPlaceholder || article.numberOfImages > 0;
+  }
+
+  public displayPhoto(article: Article): boolean {
+    return !article.hasVideoPlaceholder && article.numberOfImages > 0;
+  }
+
+  public displayVideo(article: Article): boolean {
+    return article.hasVideoPlaceholder;
   }
 }

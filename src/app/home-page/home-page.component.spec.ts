@@ -8,6 +8,7 @@ import "rxjs/add/observable/of";
 import { BannerComponent } from "../banner/banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../common/service/content.service";
+import { FirstSentencePipe } from "../common/pipe/first-sentence.pipe";
 import { FullStoryPipe } from "../common/pipe/full-story.pipe";
 import { HeadlinePipe } from "../common/pipe/headline.pipe";
 import { HomePageComponent } from "./home-page.component";
@@ -70,7 +71,8 @@ describe("HomePageComponent", () => {
         HttpClientModule
       ],
       providers: [
-        ContentService
+        ContentService,
+        FirstSentencePipe
       ]
     }).compileComponents();
   }));
