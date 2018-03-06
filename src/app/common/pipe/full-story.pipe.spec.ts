@@ -21,7 +21,11 @@ describe("FullStoryPipe", () => {
         articleStub, "numberOfImages", { value: 0 }
       );
 
-      const fullStory = pipe.transform(article, "DELETE_FIRST_SENTENCE");
+      const options = [
+        "DELETE_FIRST_SENTENCE"
+      ];
+
+      const fullStory = pipe.transform(article, options);
 
       expect(fullStory).toBe("Second sentence.<br><br>Third sentence.");
     });
@@ -29,11 +33,11 @@ describe("FullStoryPipe", () => {
 
   describe("when passed an article with 0 photos", () => {
     it("inserts 0 photo elements into the full story", () => {
-      const articleWithZeroPhotos = Object.defineProperty(
+      const article = Object.defineProperty(
         articleStub, "numberOfImages", { value: 0 }
       );
 
-      const fullStory = pipe.transform(articleWithZeroPhotos);
+      const fullStory = pipe.transform(article);
 
       expect(numberOfPhotos(fullStory)).toBe(0);
     });
@@ -41,11 +45,11 @@ describe("FullStoryPipe", () => {
 
   describe("when passed an article with 1 photo", () => {
     it("inserts 0 photo elements into the full story", () => {
-      const articleWithOnePhoto = Object.defineProperty(
+      const article = Object.defineProperty(
         articleStub, "numberOfImages", { value: 1 }
       );
 
-      const fullStory = pipe.transform(articleWithOnePhoto);
+      const fullStory = pipe.transform(article);
 
       expect(numberOfPhotos(fullStory)).toBe(0);
     });
@@ -53,11 +57,15 @@ describe("FullStoryPipe", () => {
 
   describe("when passed an article with 1 photo and an INSERT_PHOTO option", () => {
     it("inserts 1 photo element into the full story", () => {
-      const articleWithOnePhoto = Object.defineProperty(
+      const article = Object.defineProperty(
         articleStub, "numberOfImages", { value: 1 }
       );
 
-      const fullStory = pipe.transform(articleWithOnePhoto, "INSERT_PHOTO");
+      const options = [
+        "INSERT_PHOTO"
+      ];
+
+      const fullStory = pipe.transform(article, options);
 
       expect(numberOfPhotos(fullStory)).toBe(1);
     });
@@ -65,11 +73,15 @@ describe("FullStoryPipe", () => {
 
   describe("when passed an article with 2 photos and an INSERT_PHOTO option", () => {
     it("inserts 1 photo element into the full story", () => {
-      const articleWithTwoPhotos = Object.defineProperty(
+      const article = Object.defineProperty(
         articleStub, "numberOfImages", { value: 2 }
       );
 
-      const fullStory = pipe.transform(articleWithTwoPhotos, "INSERT_PHOTO");
+      const options = [
+        "INSERT_PHOTO"
+      ];
+
+      const fullStory = pipe.transform(article, options);
 
       expect(numberOfPhotos(fullStory)).toBe(1);
     });

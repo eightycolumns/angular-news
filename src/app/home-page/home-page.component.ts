@@ -20,13 +20,15 @@ export class HomePageComponent implements OnInit {
   public opinion: FeaturedSection;
   public travel: FeaturedSection;
 
-  public opinionFullStoryOptions: string;
+  public opinionFullStoryOptions: string[];
 
   constructor(
     private contentService: ContentService,
     private titleService: Title
   ) {
-    this.opinionFullStoryOptions = "INSERT_PHOTO";
+    this.opinionFullStoryOptions = [
+      "INSERT_PHOTO"
+    ];
   }
 
   ngOnInit(): void {

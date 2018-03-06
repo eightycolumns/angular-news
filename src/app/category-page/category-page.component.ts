@@ -19,8 +19,8 @@ import { ContentService } from "../common/service/content.service";
 })
 export class CategoryPageComponent implements OnInit {
   public articles: Article[];
-  public mainFullStoryOptions: string;
-  public asideFullStoryOptions: string;
+  public mainFullStoryOptions: string[];
+  public asideFullStoryOptions: string[];
 
   constructor(
     public titleService: Title,
@@ -28,8 +28,14 @@ export class CategoryPageComponent implements OnInit {
     private contentService: ContentService,
     private router: Router
   ) {
-    this.mainFullStoryOptions = "DELETE_FIRST_SENTENCE";
-    this.asideFullStoryOptions = "INDENT_AFTER_LINE_BREAKS|INSERT_PHOTO";
+    this.mainFullStoryOptions = [
+      "DELETE_FIRST_SENTENCE"
+    ];
+
+    this.asideFullStoryOptions = [
+      "INDENT_AFTER_LINE_BREAKS",
+      "INSERT_PHOTO"
+    ];
   }
 
   ngOnInit(): void {
