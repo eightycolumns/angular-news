@@ -17,13 +17,18 @@ import { ContentService } from "../common/service/content.service";
 })
 export class ArticlePageComponent implements OnInit {
   public article: Article;
+  public fullStoryOptions: string[];
 
   constructor(
     public titleService: Title,
     private activatedRoute: ActivatedRoute,
     private contentService: ContentService,
     private router: Router
-  ) {}
+  ) {
+    this.fullStoryOptions = [
+      "DELETE_FIRST_SENTENCE"
+    ];
+  }
 
   ngOnInit(): void {
     this.contentService.getArticles().subscribe((articles: Article[]) => {
@@ -40,5 +45,17 @@ export class ArticlePageComponent implements OnInit {
         }
       });
     });
+  }
+
+  public displayMultimedia(article: Article): boolean {
+    return article.hasVideoPlaceholder || article.numberOfImages > 0;
+  }
+
+  public displayPhoto(article: Article): boolean {
+    return !article.hasVideoPlaceholder && article.numberOfImages > 0;
+  }
+
+  public displayVideo(article: Article): boolean {
+    return article.hasVideoPlaceholder;
   }
 }

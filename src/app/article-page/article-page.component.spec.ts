@@ -8,6 +8,10 @@ import { TestBed } from "@angular/core/testing";
 import { Article } from "../common/interface/article";
 import { ArticlePageComponent } from "./article-page.component";
 import { ContentService } from "../common/service/content.service";
+import { FirstSentencePipe } from "../common/pipe/first-sentence.pipe";
+import { FullStoryPipe } from "../common/pipe/full-story.pipe";
+import { HeadlinePipe } from "../common/pipe/headline.pipe";
+import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 
 describe("ArticlePageComponent", () => {
   let component: ArticlePageComponent;
@@ -59,7 +63,11 @@ describe("ArticlePageComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ArticlePageComponent
+        ArticlePageComponent,
+        FirstSentencePipe,
+        FullStoryPipe,
+        HeadlinePipe,
+        PlacelinePipe
       ],
       providers: [
         {
