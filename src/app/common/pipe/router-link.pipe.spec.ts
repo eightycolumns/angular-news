@@ -22,8 +22,7 @@ describe("RouterLinkPipe", () => {
 
   describe("when passed an article", () => {
     it("returns a percent-encoded routerLink string", () => {
-      const routerLink = pipe.transform(articleStub);
-      expect(routerLink).toBe("/article/Article%20Headline");
+      expect(pipe.transform(articleStub)).toBe("/article/Article%20Headline");
     });
   });
 });

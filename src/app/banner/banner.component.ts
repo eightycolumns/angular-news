@@ -7,9 +7,7 @@ import { ContentService } from "../common/service/content.service";
 @Component({
   selector: "app-banner",
   templateUrl: "./banner.component.html",
-  styleUrls: [
-    "./banner.component.scss"
-  ]
+  styleUrls: [ "./banner.component.scss" ]
 })
 export class BannerComponent implements OnInit {
   public banners: Banner[];
@@ -18,7 +16,7 @@ export class BannerComponent implements OnInit {
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.contentService.getBanners().subscribe(data => this.banners = data);
+    this.contentService.getBanners().subscribe((banners: Banner[]) => this.banners = banners);
   }
 
   public toggleExpansion(): void {

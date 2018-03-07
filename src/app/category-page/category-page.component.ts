@@ -14,9 +14,7 @@ import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
 @Component({
   selector: "app-category-page",
   templateUrl: "./category-page.component.html",
-  styleUrls: [
-    "./category-page.component.scss"
-  ]
+  styleUrls: [ "./category-page.component.scss" ]
 })
 export class CategoryPageComponent implements OnInit {
   public mainArticle: Article;
@@ -44,33 +42,31 @@ export class CategoryPageComponent implements OnInit {
   ngOnInit(): void {
     this.contentService.getCategories().subscribe((categories: Category[]) => {
       this.activatedRoute.params.subscribe((params: Params) => {
-        const category = categories.find(
-          category => category.shortName === params.shortName
-        );
+        const category = categories.find(category => category.shortName === params.shortName);
 
         if (category === undefined) {
           this.router.navigateByUrl("");
         } else {
           this.titleService.setTitle(category.displayName);
 
-          this.contentService.getArticlesByCategory(category.id).subscribe(data => {
-            this.mainArticle = data[0];
-            this.asideArticles = data.slice(1);
+          this.contentService.getArticlesByCategory(category.id).subscribe((articles: Article[]) => {
+            this.mainArticle = articles[0];
+            this.asideArticles = articles.slice(1);
           });
         }
       });
     });
   }
 
-  public displayMultimedia(article: Article): boolean {
-    return article.hasVideoPlaceholder || article.numberOfImages > 0;
+  public displayVideo(article: Article): boolean {
+    return article.hasVideoPlaceholder;
   }
 
   public displayPhoto(article: Article): boolean {
     return !article.hasVideoPlaceholder && article.numberOfImages > 0;
   }
 
-  public displayVideo(article: Article): boolean {
-    return article.hasVideoPlaceholder;
+  public displayMultimedia(article: Article): boolean {
+    return article.hasVideoPlaceholder || article.numberOfImages > 0;
   }
 }

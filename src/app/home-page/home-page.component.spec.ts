@@ -68,15 +68,15 @@ describe("HomePageComponent", () => {
         HomePageComponent,
         ImagesPipe,
         PlacelinePipe,
-        RouterLinkPipe
+        RouterLinkPipe,
       ],
       imports: [
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
       ],
       providers: [
         ContentService,
-        FirstSentencePipe
+        FirstSentencePipe,
       ]
     }).compileComponents();
   }));
@@ -84,13 +84,8 @@ describe("HomePageComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
-
     contentService = fixture.debugElement.injector.get(ContentService);
-
-    spyOn(contentService, "getFeaturedSections").and.returnValue(
-      Observable.of(httpResponseStub)
-    );
-
+    spyOn(contentService, "getFeaturedSections").and.returnValue(Observable.of(httpResponseStub));
     fixture.detectChanges();
   });
 

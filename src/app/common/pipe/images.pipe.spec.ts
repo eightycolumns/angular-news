@@ -22,28 +22,19 @@ describe("ImagesPipe", () => {
 
   describe("when passed an article", () => {
     it("returns an array of length equal to the number of images in the article", () => {
-      const images = pipe.transform(articleStub);
-      expect(images.length).toBe(articleStub.numberOfImages);
+      expect(pipe.transform(articleStub).length).toBe(2);
     });
   });
 
   describe("when passed an article and a second argument n, where n is less than the number of images in the article", () => {
     it("returns an array of length n", () => {
-      const images = pipe.transform(
-        articleStub, articleStub.numberOfImages - 1
-      );
-
-      expect(images.length).toBe(articleStub.numberOfImages - 1);
+      expect(pipe.transform(articleStub, 1).length).toBe(1);
     });
   });
 
   describe("when passed an article and a second argument n, where n is greater than the number of images in the article", () => {
     it("returns an array of length equal to the number of images in the article", () => {
-      const images = pipe.transform(
-        articleStub, articleStub.numberOfImages + 1
-      );
-
-      expect(images.length).toBe(articleStub.numberOfImages);
+      expect(pipe.transform(articleStub, 3).length).toBe(2);
     });
   });
 });

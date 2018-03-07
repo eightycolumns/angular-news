@@ -12,10 +12,10 @@ describe("HeaderComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeaderComponent
+        HeaderComponent,
       ],
       providers: [
-        DatePipe
+        DatePipe,
       ]
     }).compileComponents();
   }));

@@ -23,9 +23,7 @@ describe("CategoryPageComponent", () => {
   const activatedRouteStub = {
     params: Observable.create(observer => observer.next({
       shortName: "Short Name Two"
-    })),
-
-    snapshot: {}
+    }))
   };
 
   const articlesStub = [
@@ -69,22 +67,22 @@ describe("CategoryPageComponent", () => {
 
   const categoriesStub = [
     {
-      id: 1,
       displayName: "Display Name One",
+      id: 1,
       shortName: "Short Name One"
     },
     {
-      id: 2,
       displayName: "Display Name Two",
+      id: 2,
       shortName: "Short Name Two"
     }
   ];
 
   const contentServiceStub = {
     getArticlesByCategory: (id: number): Observable<Article[]> => {
-      return Observable.create(observer => observer.next(articlesStub.filter(
-        article => article.categoryId === id
-      )));
+      return Observable.create(observer => observer.next(
+        articlesStub.filter(article => article.categoryId === id)
+      ));
     },
 
     getCategories: (): Observable<Category[]> => {
@@ -100,10 +98,10 @@ describe("CategoryPageComponent", () => {
         FullStoryPipe,
         HeadlinePipe,
         PlacelinePipe,
-        RouterLinkPipe
+        RouterLinkPipe,
       ],
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
       ],
       providers: [
         FirstSentencePipe,
@@ -114,7 +112,7 @@ describe("CategoryPageComponent", () => {
         {
           provide: ContentService,
           useValue: contentServiceStub
-        }
+        },
       ]
     }).compileComponents();
   }));

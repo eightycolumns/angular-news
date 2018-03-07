@@ -22,7 +22,7 @@ import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
 
 @NgModule({
   bootstrap: [
-    AppComponent
+    AppComponent,
   ],
   declarations: [
     AppComponent,
@@ -37,17 +37,17 @@ import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
     HomePageComponent,
     ImagesPipe,
     PlacelinePipe,
-    RouterLinkPipe
+    RouterLinkPipe,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
     ContentService,
-    DatePipe
+    DatePipe,
   ]
 })
 export class AppModule {}

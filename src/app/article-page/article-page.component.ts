@@ -11,9 +11,7 @@ import { ContentService } from "../common/service/content.service";
 @Component({
   selector: "app-article-page",
   templateUrl: "./article-page.component.html",
-  styleUrls: [
-    "./article-page.component.scss"
-  ]
+  styleUrls: [ "./article-page.component.scss" ]
 })
 export class ArticlePageComponent implements OnInit {
   public article: Article;
@@ -33,9 +31,7 @@ export class ArticlePageComponent implements OnInit {
   ngOnInit(): void {
     this.contentService.getArticles().subscribe((articles: Article[]) => {
       this.activatedRoute.params.subscribe((params: Params) => {
-        const article = articles.find(
-          article => article.headLine === decodeURI(params.headline)
-        );
+        const article = articles.find(article => article.headLine === decodeURI(params.headline));
 
         if (article === undefined) {
           this.router.navigateByUrl("");
@@ -47,15 +43,15 @@ export class ArticlePageComponent implements OnInit {
     });
   }
 
-  public displayMultimedia(article: Article): boolean {
-    return article.hasVideoPlaceholder || article.numberOfImages > 0;
+  public displayVideo(article: Article): boolean {
+    return article.hasVideoPlaceholder;
   }
 
   public displayPhoto(article: Article): boolean {
     return !article.hasVideoPlaceholder && article.numberOfImages > 0;
   }
 
-  public displayVideo(article: Article): boolean {
-    return article.hasVideoPlaceholder;
+  public displayMultimedia(article: Article): boolean {
+    return article.hasVideoPlaceholder || article.numberOfImages > 0;
   }
 }

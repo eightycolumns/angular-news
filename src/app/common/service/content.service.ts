@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { Article } from "../interface/article";
 import { Banner } from "../interface/banner";
 import { Category } from "../interface/category";
-import { FeaturedSection } from "../interface/featured-section";
+import { Section } from "../interface/section";
 
 @Injectable()
 export class ContentService {
@@ -33,8 +33,8 @@ export class ContentService {
     return this.httpClient.get<Category[]>(url);
   }
 
-  public getFeaturedSections(): Observable<FeaturedSection[]> {
+  public getFeaturedSections(): Observable<Section[]> {
     const url = `${this.baseUrl}/FeaturedSections`;
-    return this.httpClient.get<FeaturedSection[]>(url);
+    return this.httpClient.get<Section[]>(url);
   }
 }

@@ -11,7 +11,7 @@ describe("CallToActionComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CallToActionComponent
+        CallToActionComponent,
       ]
     }).compileComponents();
   }));

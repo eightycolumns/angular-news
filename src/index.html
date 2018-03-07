@@ -24,8 +24,7 @@
       (function () {
         document.addEventListener("DOMContentLoaded", function () {
           setTimeout(function enableTransitions() {
-            var body = document.querySelector("body");
-            body.classList.remove("transitions-disabled");
+            document.querySelector("body").classList.remove("transitions-disabled");
           }, 100);
         });
       })();

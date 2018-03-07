@@ -8,17 +8,15 @@ describe("ContentService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientModule
+        HttpClientModule,
       ],
       providers: [
-        ContentService
+        ContentService,
       ]
     });
   });
 
   it("creates an instance", inject(
-    [ ContentService ], (contentService: ContentService) => {
-      expect(contentService).toBeTruthy();
-    }
+    [ ContentService ], (contentService: ContentService) => expect(contentService).toBeTruthy()
   ));
 });

@@ -33,13 +33,13 @@ describe("AppComponent", () => {
         HomePageComponent,
         ImagesPipe,
         PlacelinePipe,
-        RouterLinkPipe
+        RouterLinkPipe,
       ],
       imports: [
-        AppRoutingModule
+        AppRoutingModule,
       ],
       providers: [
-        DatePipe
+        DatePipe,
       ]
     }).compileComponents();
   }));

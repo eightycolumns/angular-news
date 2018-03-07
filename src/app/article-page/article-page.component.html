@@ -6,22 +6,13 @@
       <div *ngIf="displayVideo(article)" class="video">[VIDEO]</div>
       <div *ngIf="displayPhoto(article)" class="photo">[PHOTO]</div>
 
-      <p *ngIf="displayMultimedia(article)" class="caption">
-        {{article | firstSentence}}
-      </p>
+      <p *ngIf="displayMultimedia(article)" class="caption">{{article | firstSentence}}</p>
 
       <p class="body">
         <span class="placeline">{{article | placeline}}</span>
 
-        <span
-          *ngIf="displayMultimedia(article)"
-          [innerHtml]="article | fullStory:fullStoryOptions">
-        </span>
-
-        <span
-          *ngIf="!displayMultimedia(article)"
-          [innerHtml]="article | fullStory">
-        </span>
+        <span *ngIf="displayMultimedia(article)" [innerHtml]="article | fullStory:fullStoryOptions"></span>
+        <span *ngIf="!displayMultimedia(article)" [innerHtml]="article | fullStory"></span>
 
         <span *ngIf="article.nsfw" class="nsfw">[NSFW]</span>
       </p>

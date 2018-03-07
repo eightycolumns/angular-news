@@ -21,25 +21,15 @@ describe("HeadlinePipe", () => {
 
   describe("when passed an article with a colon in the headline", () => {
     it("returns the headline split into two spans", () => {
-      const articleWithColonInHeadline = Object.defineProperty(
-        articleStub, "headLine", { value: "Headline: With a Colon" }
-      );
-
-      const headline = pipe.transform(articleWithColonInHeadline);
-
-      expect(headline).toBe("<span>Headline:</span><span> With a Colon</span>");
+      const article = Object.defineProperty(articleStub, "headLine", { value: "Headline: With a Colon" });
+      expect(pipe.transform(article)).toBe("<span>Headline:</span><span> With a Colon</span>");
     });
   });
 
   describe("when passed an article without a colon in the headline", () => {
     it("returns the headline unaltered", () => {
-      const articleWithoutColonInHeadline = Object.defineProperty(
-        articleStub, "headLine", { value: "Headline" }
-      );
-
-      const headline = pipe.transform(articleWithoutColonInHeadline);
-
-      expect(headline).toBe("Headline");
+      const article = Object.defineProperty(articleStub, "headLine", { value: "Headline" });
+      expect(pipe.transform(article)).toBe("Headline");
     });
   });
 });

@@ -22,8 +22,7 @@ describe("PlacelinePipe", () => {
 
   describe("when passed an article", () => {
     it("returns the placeline in upper case", () => {
-      const placeline = pipe.transform(articleStub);
-      expect(placeline).toBe(articleStub.location.toUpperCase());
+      expect(pipe.transform(articleStub)).toBe("LOCATION");
     });
   });
 });

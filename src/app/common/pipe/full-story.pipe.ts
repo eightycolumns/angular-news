@@ -59,9 +59,7 @@ export class FullStoryPipe implements PipeTransform {
         }
       });
     } else {
-      return fullStory.replace(
-        "<br><br>", `<div class="photo">[PHOTO]</div>`
-      );
+      return fullStory.replace("<br><br>", `<div class="photo">[PHOTO]</div>`);
     }
   }
 }

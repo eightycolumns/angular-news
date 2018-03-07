@@ -29,13 +29,13 @@ describe("BannerComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         CallToActionComponent,
-        BannerComponent
+        BannerComponent,
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
       ],
       providers: [
-        ContentService
+        ContentService,
       ]
     }).compileComponents();
   }));
@@ -43,13 +43,8 @@ describe("BannerComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
-
     contentService = fixture.debugElement.injector.get(ContentService);
-
-    spyOn(contentService, "getBanners").and.returnValue(
-      Observable.of(httpResponseStub)
-    );
-
+    spyOn(contentService, "getBanners").and.returnValue(Observable.of(httpResponseStub));
     fixture.detectChanges();
   });
 

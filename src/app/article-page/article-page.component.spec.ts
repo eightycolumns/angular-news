@@ -2,7 +2,7 @@ import { ActivatedRoute } from "@angular/router";
 import { async } from "@angular/core/testing";
 import { ComponentFixture} from "@angular/core/testing";
 import { Observable } from "rxjs/Observable";
-import { Router } from "@angular/router";
+import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
 
 import { Article } from "../common/interface/article";
@@ -56,10 +56,6 @@ describe("ArticlePageComponent", () => {
     },
   };
 
-  const routerStub = {
-    navigateByUrl: (url: string): void => {}
-  };
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -67,7 +63,10 @@ describe("ArticlePageComponent", () => {
         FirstSentencePipe,
         FullStoryPipe,
         HeadlinePipe,
-        PlacelinePipe
+        PlacelinePipe,
+      ],
+      imports: [
+        RouterTestingModule,
       ],
       providers: [
         {
@@ -78,10 +77,6 @@ describe("ArticlePageComponent", () => {
           provide: ContentService,
           useValue: contentServiceStub
         },
-        {
-          provide: Router,
-          useValue: routerStub
-        }
       ]
     }).compileComponents();
   }));
