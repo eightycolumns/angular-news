@@ -15,6 +15,7 @@ import { HeadlinePipe } from "./common/pipe/headline.pipe";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { ImagesPipe } from "./common/pipe/images.pipe";
 import { PlacelinePipe } from "./common/pipe/placeline.pipe";
+import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -31,7 +32,8 @@ describe("AppComponent", () => {
         HeadlinePipe,
         HomePageComponent,
         ImagesPipe,
-        PlacelinePipe
+        PlacelinePipe,
+        RouterLinkPipe
       ],
       imports: [
         AppRoutingModule

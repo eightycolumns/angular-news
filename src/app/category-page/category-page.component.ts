@@ -9,6 +9,7 @@ import { Title } from "@angular/platform-browser";
 import { Article } from "../common/interface/article";
 import { Category } from "../common/interface/category";
 import { ContentService } from "../common/service/content.service";
+import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
 
 @Component({
   selector: "app-category-page",
@@ -71,9 +72,5 @@ export class CategoryPageComponent implements OnInit {
 
   public displayVideo(article: Article): boolean {
     return article.hasVideoPlaceholder;
-  }
-
-  public linkTo(article: Article): string {
-    return `/article/${encodeURI(article.headLine)}`;
   }
 }

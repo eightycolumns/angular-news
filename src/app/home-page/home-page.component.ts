@@ -7,6 +7,7 @@ import "rxjs/add/observable/zip";
 import { Article } from "../common/interface/article";
 import { ContentService } from "../common/service/content.service";
 import { FeaturedSection } from "../common/interface/featured-section";
+import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
 
 @Component({
   selector: "app-home-page",
@@ -41,9 +42,5 @@ export class HomePageComponent implements OnInit {
       this.opinion = data.find(section => section.description === "Opinion");
       this.travel = data.find(section => section.description === "Travel");
     });
-  }
-
-  public linkTo(article: Article): string {
-    return `/article/${encodeURI(article.headLine)}`;
   }
 }

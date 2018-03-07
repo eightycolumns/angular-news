@@ -14,6 +14,7 @@ import { FirstSentencePipe } from "../common/pipe/first-sentence.pipe";
 import { FullStoryPipe } from "../common/pipe/full-story.pipe";
 import { HeadlinePipe } from "../common/pipe/headline.pipe";
 import { PlacelinePipe } from "../common/pipe/placeline.pipe";
+import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
 
 describe("CategoryPageComponent", () => {
   let component: CategoryPageComponent;
@@ -98,7 +99,8 @@ describe("CategoryPageComponent", () => {
         FirstSentencePipe,
         FullStoryPipe,
         HeadlinePipe,
-        PlacelinePipe
+        PlacelinePipe,
+        RouterLinkPipe
       ],
       imports: [
         RouterTestingModule

@@ -2,7 +2,7 @@
 
 <div class="home-page">
   <aside *ngIf="aside">
-    <article [routerLink]="linkTo(aside.articles[0])">
+    <article [routerLink]="aside.articles[0] | routerLink">
       <h3 class="headline" [innerHtml]="aside.articles[0] | headline"></h3>
 
       <p class="body">
@@ -12,7 +12,7 @@
       </p>
     </article>
 
-    <article [routerLink]="linkTo(aside.articles[1])">
+    <article [routerLink]="aside.articles[1] | routerLink">
       <h3 class="headline" [innerHtml]="aside.articles[1] | headline"></h3>
 
       <p class="body">
@@ -24,7 +24,7 @@
   </aside>
 
   <main *ngIf="main">
-    <article [routerLink]="linkTo(main.articles[0])">
+    <article [routerLink]="main.articles[0] | routerLink">
       <div *ngIf="main.articles[0].hasVideoPlaceholder" class="video">[VIDEO]</div>
 
       <h3 class="headline" [innerHtml]="main.articles[0] | headline"></h3>
@@ -36,7 +36,7 @@
       </p>
     </article>
 
-    <article [routerLink]="linkTo(main.articles[1])">
+    <article [routerLink]="main.articles[1] | routerLink">
       <h3 class="headline" [innerHtml]="main.articles[1] | headline"></h3>
 
       <p class="body">
@@ -46,7 +46,7 @@
       </p>
     </article>
 
-    <article [routerLink]="linkTo(main.articles[2])">
+    <article [routerLink]="main.articles[2] | routerLink">
       <div *ngIf="main.articles[2].numberOfImages > 0" class="photo">[PHOTO]</div>
 
       <h3 class="headline" [innerHtml]="main.articles[2] | headline"></h3>
@@ -63,7 +63,7 @@
     <section *ngIf="opinion" class="opinion">
       <h2>The Opinion Pages</h2>
 
-      <article [routerLink]="linkTo(opinion.articles[0])">
+      <article [routerLink]="opinion.articles[0] | routerLink">
         <h3 class="headline" [innerHtml]="opinion.articles[0] | headline"></h3>
 
         <p class="body">
@@ -73,7 +73,7 @@
         </p>
       </article>
 
-      <article [routerLink]="linkTo(opinion.articles[1])">
+      <article [routerLink]="opinion.articles[1] | routerLink">
         <h3 class="headline" [innerHtml]="opinion.articles[1] | headline"></h3>
 
         <p class="body">
@@ -87,13 +87,13 @@
     <section *ngIf="travel" class="travel">
       <h2>TRAVEL</h2>
 
-      <article [routerLink]="linkTo(travel.articles[0])">
+      <article [routerLink]="travel.articles[0] | routerLink">
         <h3 class="headline" [innerHtml]="travel.articles[0] | headline"></h3>
 
         <div *ngFor="let image of (travel.articles[0] | images:2)" class="photo">[PHOTO]</div>
       </article>
 
-      <article [routerLink]="linkTo(travel.articles[1])">
+      <article [routerLink]="travel.articles[1] | routerLink">
         <h3 class="headline" [innerHtml]="travel.articles[1] | headline"></h3>
 
         <div *ngIf="travel.articles[1].numberOfImages > 0" class="photo">[PHOTO]</div>

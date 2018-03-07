@@ -18,6 +18,7 @@ import { HeadlinePipe } from "./common/pipe/headline.pipe";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { ImagesPipe } from "./common/pipe/images.pipe";
 import { PlacelinePipe } from "./common/pipe/placeline.pipe";
+import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
 
 @NgModule({
   bootstrap: [
@@ -35,7 +36,8 @@ import { PlacelinePipe } from "./common/pipe/placeline.pipe";
     HeadlinePipe,
     HomePageComponent,
     ImagesPipe,
-    PlacelinePipe
+    PlacelinePipe,
+    RouterLinkPipe
   ],
   imports: [
     AppRoutingModule,
