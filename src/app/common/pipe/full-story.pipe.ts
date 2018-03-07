@@ -41,7 +41,7 @@ export class FullStoryPipe implements PipeTransform {
   }
 
   private indentAfterLineBreaks(fullStory: string): string {
-    const indent = "<span class=\"indent\"></span>";
+    const indent = `<span class="indent"></span>`;
     return fullStory.replace(/<br>/g, `<br>${indent}`);
   }
 
@@ -60,7 +60,7 @@ export class FullStoryPipe implements PipeTransform {
       });
     } else {
       return fullStory.replace(
-        "<br><br>", "<div class=\"photo\">[PHOTO]</div>"
+        "<br><br>", `<div class="photo">[PHOTO]</div>`
       );
     }
   }
