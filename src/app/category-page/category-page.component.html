@@ -1,35 +1,35 @@
-<div *ngIf="articles && articles.length > 0" class="category-page">
-  <main [class.full-width]="articles.length < 2">
-    <article>
-      <h2 class="headline" [innerHtml]="articles[0] | headline"></h2>
+<div *ngIf="mainArticle && asideArticles" class="category-page">
+  <main [class.full-width]="asideArticles.length === 0">
+    <article [routerLink]="linkTo(mainArticle)">
+      <h2 class="headline" [innerHtml]="mainArticle | headline"></h2>
 
-      <div *ngIf="displayVideo(articles[0])" class="video">[VIDEO]</div>
-      <div *ngIf="displayPhoto(articles[0])" class="photo">[PHOTO]</div>
+      <div *ngIf="displayVideo(mainArticle)" class="video">[VIDEO]</div>
+      <div *ngIf="displayPhoto(mainArticle)" class="photo">[PHOTO]</div>
 
-      <p *ngIf="displayMultimedia(articles[0])" class="caption">
-        {{articles[0] | firstSentence}}
+      <p *ngIf="displayMultimedia(mainArticle)" class="caption">
+        {{mainArticle | firstSentence}}
       </p>
 
       <p class="body">
-        <span class="placeline">{{articles[0] | placeline}}</span>
+        <span class="placeline">{{mainArticle | placeline}}</span>
 
         <span
-          *ngIf="displayMultimedia(articles[0])"
-          [innerHtml]="articles[0] | fullStory:mainFullStoryOptions">
+          *ngIf="displayMultimedia(mainArticle)"
+          [innerHtml]="mainArticle | fullStory:mainFullStoryOptions">
         </span>
 
         <span
-          *ngIf="!displayMultimedia(articles[0])"
-          [innerHtml]="articles[0] | fullStory">
+          *ngIf="!displayMultimedia(mainArticle)"
+          [innerHtml]="mainArticle | fullStory">
         </span>
 
-        <span *ngIf="articles[0].nsfw" class="nsfw">[NSFW]</span>
+        <span *ngIf="mainArticle.nsfw" class="nsfw">[NSFW]</span>
       </p>
     </article>
   </main>
 
-  <aside *ngIf="articles.length > 1">
-    <article *ngFor="let article of articles.slice(1)">
+  <aside *ngIf="asideArticles.length > 0">
+    <article *ngFor="let article of asideArticles" [routerLink]="linkTo(article)">
       <h2 class="headline" [innerHtml]="article | headline"></h2>
 
       <p class="body">

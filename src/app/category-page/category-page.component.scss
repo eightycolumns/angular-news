@@ -69,7 +69,9 @@
   }
 
   article {
+    cursor: pointer;
     margin-top: 1rem;
+    outline: none;
 
     .photo,
     .video {

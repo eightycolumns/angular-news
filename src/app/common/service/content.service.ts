@@ -13,7 +13,12 @@ export class ContentService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getArticles(id: number): Observable<Article[]> {
+  public getArticles(): Observable<Article[]> {
+    const url = `${this.baseUrl}/Articles`;
+    return this.httpClient.get<Article[]>(url);
+  }
+
+  public getArticlesByCategory(id: number): Observable<Article[]> {
     const url = `${this.baseUrl}/Categories/${id}/Articles`;
     return this.httpClient.get<Article[]>(url);
   }

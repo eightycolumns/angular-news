@@ -2,6 +2,7 @@ import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { HttpClientModule } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
 import "rxjs/add/observable/of";
 
@@ -68,7 +69,8 @@ describe("HomePageComponent", () => {
         PlacelinePipe
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        RouterTestingModule
       ],
       providers: [
         ContentService,

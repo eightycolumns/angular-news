@@ -4,6 +4,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
+import { ArticlePageComponent } from "./article-page/article-page.component";
 import { BannerComponent } from "./banner/banner.component";
 import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
@@ -20,6 +21,7 @@ describe("AppComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        ArticlePageComponent,
         BannerComponent,
         CallToActionComponent,
         CategoryPageComponent,

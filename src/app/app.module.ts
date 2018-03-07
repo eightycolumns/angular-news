@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { DatePipe } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
@@ -39,7 +40,8 @@ import { PlacelinePipe } from "./common/pipe/placeline.pipe";
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     ContentService,

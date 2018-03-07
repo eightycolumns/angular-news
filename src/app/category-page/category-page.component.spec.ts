@@ -3,7 +3,7 @@ import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { Observable } from "rxjs/Observable";
 import { Params } from "@angular/router";
-import { Router } from "@angular/router";
+import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
 
 import { Article } from "../common/interface/article";
@@ -22,7 +22,9 @@ describe("CategoryPageComponent", () => {
   const activatedRouteStub = {
     params: Observable.create(observer => observer.next({
       shortName: "Short Name Two"
-    }))
+    })),
+
+    snapshot: {}
   };
 
   const articlesStub = [
@@ -49,6 +51,18 @@ describe("CategoryPageComponent", () => {
       numberOfImages: 0,
       relatedArticleIds: [],
       snippet: "Snippet Two"
+    },
+    {
+      categoryId: 2,
+      fullStory: "Full Story Three",
+      hasVideoPlaceholder: false,
+      headLine: "Headline Three",
+      id: 1,
+      location: "Location Three",
+      nsfw: false,
+      numberOfImages: 0,
+      relatedArticleIds: [],
+      snippet: "Snippet Three"
     }
   ];
 
@@ -66,7 +80,7 @@ describe("CategoryPageComponent", () => {
   ];
 
   const contentServiceStub = {
-    getArticles: (id: number): Observable<Article[]> => {
+    getArticlesByCategory: (id: number): Observable<Article[]> => {
       return Observable.create(observer => observer.next(articlesStub.filter(
         article => article.categoryId === id
       )));
@@ -75,10 +89,6 @@ describe("CategoryPageComponent", () => {
     getCategories: (): Observable<Category[]> => {
       return Observable.create(observer => observer.next(categoriesStub));
     }
-  };
-
-  const routerStub = {
-    navigateByUrl: (url: string): void => {}
   };
 
   beforeEach(async(() => {
@@ -90,6 +100,9 @@ describe("CategoryPageComponent", () => {
         HeadlinePipe,
         PlacelinePipe
       ],
+      imports: [
+        RouterTestingModule
+      ],
       providers: [
         FirstSentencePipe,
         {
@@ -99,10 +112,6 @@ describe("CategoryPageComponent", () => {
         {
           provide: ContentService,
           useValue: contentServiceStub
-        },
-        {
-          provide: Router,
-          useValue: routerStub
         }
       ]
     }).compileComponents();
@@ -122,7 +131,12 @@ describe("CategoryPageComponent", () => {
     expect(component.titleService.getTitle()).toBe("Display Name Two");
   });
 
-  it("gets the category's articles from the content service", () => {
-    expect(component.articles.length).toBe(1);
+  it("gets the main article from the content service", () => {
+    expect(component.mainArticle.fullStory).toBe("Full Story Two");
+  });
+
+  it("gets the aside articles from the content service", () => {
+    expect(component.asideArticles.length).toBe(1);
+    expect(component.asideArticles[0].fullStory).toBe("Full Story Three");
   });
 });

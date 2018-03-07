@@ -18,8 +18,10 @@ import { ContentService } from "../common/service/content.service";
   ]
 })
 export class CategoryPageComponent implements OnInit {
-  public articles: Article[];
+  public mainArticle: Article;
   public mainFullStoryOptions: string[];
+
+  public asideArticles: Article[];
   public asideFullStoryOptions: string[];
 
   constructor(
@@ -50,9 +52,10 @@ export class CategoryPageComponent implements OnInit {
         } else {
           this.titleService.setTitle(category.displayName);
 
-          this.contentService.getArticles(category.id).subscribe(
-            data => this.articles = data
-          );
+          this.contentService.getArticlesByCategory(category.id).subscribe(data => {
+            this.mainArticle = data[0];
+            this.asideArticles = data.slice(1);
+          });
         }
       });
     });
@@ -68,5 +71,9 @@ export class CategoryPageComponent implements OnInit {
 
   public displayVideo(article: Article): boolean {
     return article.hasVideoPlaceholder;
+  }
+
+  public linkTo(article: Article): string {
+    return `/article/${encodeURI(article.headLine)}`;
   }
 }
