@@ -21,7 +21,10 @@
   <nav>
     <ul *ngIf="categories">
       <li *ngFor="let category of categories.slice(0, -1)">
-        <a routerLink="/category/{{category.shortName}}">{{category.displayName.toUpperCase()}}</a>
+        <a
+          routerLink="/category/{{category.shortName}}"
+          [innerHTML]="category.displayName.toUpperCase() | htmlEntities">
+        </a>
       </li>
     </ul>
   </nav>

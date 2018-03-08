@@ -16,6 +16,7 @@ import { FullStoryPipe } from "./common/pipe/full-story.pipe";
 import { HeaderComponent } from "./header/header.component";
 import { HeadlinePipe } from "./common/pipe/headline.pipe";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { HtmlEntitiesPipe } from "./common/pipe/html-entities.pipe";
 import { ImagesPipe } from "./common/pipe/images.pipe";
 import { PlacelinePipe } from "./common/pipe/placeline.pipe";
 import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
@@ -35,6 +36,7 @@ import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
     HeaderComponent,
     HeadlinePipe,
     HomePageComponent,
+    HtmlEntitiesPipe,
     ImagesPipe,
     PlacelinePipe,
     RouterLinkPipe,

@@ -7,6 +7,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { ContentService } from "../common/service/content.service";
 import { HeaderComponent } from "./header.component";
+import { HtmlEntitiesPipe } from "../common/pipe/html-entities.pipe";
 
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
@@ -16,6 +17,7 @@ describe("HeaderComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         HeaderComponent,
+        HtmlEntitiesPipe
       ],
       imports: [
         HttpClientModule,
