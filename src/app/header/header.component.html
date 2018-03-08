@@ -19,13 +19,10 @@
   </div>
 
   <nav>
-    <ul>
-      <li><a routerLink="/category/world">WORLD</a></li>
-      <li><a routerLink="/category/business">BUSINESS</a></li>
-      <li><a routerLink="/category/opinion">OPINION</a></li>
-      <li><a routerLink="/category/sports">SPORTS</a></li>
-      <li><a routerLink="/category/fashion">FASHION &amp; STYLE</a></li>
-      <li><a routerLink="/category/video">VIDEO</a></li>
+    <ul *ngIf="categories">
+      <li *ngFor="let category of categories.slice(0, -1)">
+        <a routerLink="/category/{{category.shortName}}">{{category.displayName.toUpperCase()}}</a>
+      </li>
     </ul>
   </nav>
 </header>

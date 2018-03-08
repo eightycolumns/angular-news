@@ -1,5 +1,6 @@
 import { async } from "@angular/core/testing";
 import { DatePipe } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 import { TestBed } from "@angular/core/testing";
 
 import { AppComponent } from "./app.component";
@@ -8,6 +9,7 @@ import { ArticlePageComponent } from "./article-page/article-page.component";
 import { BannerComponent } from "./banner/banner.component";
 import { CallToActionComponent } from "./call-to-action/call-to-action.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
+import { ContentService } from "./common/service/content.service";
 import { FirstSentencePipe } from "./common/pipe/first-sentence.pipe";
 import { FullStoryPipe } from "./common/pipe/full-story.pipe";
 import { HeaderComponent } from "./header/header.component";
@@ -37,8 +39,10 @@ describe("AppComponent", () => {
       ],
       imports: [
         AppRoutingModule,
+        HttpClientModule,
       ],
       providers: [
+        ContentService,
         DatePipe,
       ]
     }).compileComponents();

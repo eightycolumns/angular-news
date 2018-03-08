@@ -1,8 +1,11 @@
 import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
 import { DatePipe } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
 
+import { ContentService } from "../common/service/content.service";
 import { HeaderComponent } from "./header.component";
 
 describe("HeaderComponent", () => {
@@ -14,7 +17,12 @@ describe("HeaderComponent", () => {
       declarations: [
         HeaderComponent,
       ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+      ],
       providers: [
+        ContentService,
         DatePipe,
       ]
     }).compileComponents();
