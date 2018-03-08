@@ -51,7 +51,7 @@ describe("ArticlePageComponent", () => {
   ];
 
   const contentServiceStub = {
-    getArticles: (id: number): Observable<Article[]> => {
+    getArticles: (): Observable<Article[]> => {
       return Observable.create(observer => observer.next(articlesStub));
     },
   };

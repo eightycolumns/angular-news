@@ -1,10 +1,9 @@
 import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
-import { HttpClientModule } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { TestBed } from "@angular/core/testing";
-import "rxjs/add/observable/of";
 
+import { Banner } from "../common/interface/banner";
 import { BannerComponent } from "./banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../common/service/content.service";
@@ -14,7 +13,7 @@ describe("BannerComponent", () => {
   let contentService: ContentService;
   let fixture: ComponentFixture<BannerComponent>;
 
-  const httpResponseStub = [
+  const bannersStub = [
     {
       id: 1,
       message: "Message One"
@@ -25,17 +24,23 @@ describe("BannerComponent", () => {
     }
   ];
 
+  const contentServiceStub = {
+    getBanners: (): Observable<Banner[]> => {
+      return Observable.create(observer => observer.next(bannersStub));
+    }
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         CallToActionComponent,
         BannerComponent,
       ],
-      imports: [
-        HttpClientModule,
-      ],
       providers: [
-        ContentService,
+        {
+          provide: ContentService,
+          useValue: contentServiceStub
+        },
       ]
     }).compileComponents();
   }));
@@ -43,8 +48,6 @@ describe("BannerComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
-    contentService = fixture.debugElement.injector.get(ContentService);
-    spyOn(contentService, "getBanners").and.returnValue(Observable.of(httpResponseStub));
     fixture.detectChanges();
   });
 
@@ -53,7 +56,6 @@ describe("BannerComponent", () => {
   });
 
   it("gets its content from the content service", () => {
-    expect(component.banners[0].message).toBe("Message One");
-    expect(component.banners[1].message).toBe("Message Two");
+    expect(component.banners).toEqual(bannersStub);
   });
 });

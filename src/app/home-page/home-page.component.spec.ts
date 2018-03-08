@@ -1,11 +1,10 @@
 import { async } from "@angular/core/testing";
 import { ComponentFixture } from "@angular/core/testing";
-import { HttpClientModule } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
-import "rxjs/add/observable/of";
 
+import { Banner } from "../common/interface/banner";
 import { BannerComponent } from "../banner/banner.component";
 import { CallToActionComponent } from "../call-to-action/call-to-action.component";
 import { ContentService } from "../common/service/content.service";
@@ -16,11 +15,23 @@ import { HomePageComponent } from "./home-page.component";
 import { ImagesPipe } from "../common/pipe/images.pipe";
 import { PlacelinePipe } from "../common/pipe/placeline.pipe";
 import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
+import { Section } from "../common/interface/section";
 
 describe("HomePageComponent", () => {
   let component: HomePageComponent;
   let contentService: ContentService;
   let fixture: ComponentFixture<HomePageComponent>;
+
+  const bannersStub = [
+    {
+      id: 1,
+      message: "Message One"
+    },
+    {
+      id: 2,
+      message: "Message Two"
+    }
+  ];
 
   const articleStub = {
     categoryId: 1,
@@ -35,7 +46,7 @@ describe("HomePageComponent", () => {
     snippet: "Snippet"
   };
 
-  const httpResponseStub = [
+  const featuredSectionsStub = [
     {
       articles: (new Array(2)).fill(articleStub),
       description: "Aside",
@@ -58,6 +69,16 @@ describe("HomePageComponent", () => {
     },
   ];
 
+  const contentServiceStub = {
+    getBanners: (): Observable<Banner[]> => {
+      return Observable.create(observer => observer.next(bannersStub));
+    },
+
+    getFeaturedSections: (): Observable<Section[]> => {
+      return Observable.create(observer => observer.next(featuredSectionsStub));
+    }
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -71,12 +92,14 @@ describe("HomePageComponent", () => {
         RouterLinkPipe,
       ],
       imports: [
-        HttpClientModule,
         RouterTestingModule,
       ],
       providers: [
-        ContentService,
         FirstSentencePipe,
+        {
+          provide: ContentService,
+          useValue: contentServiceStub
+        },
       ]
     }).compileComponents();
   }));
@@ -84,8 +107,6 @@ describe("HomePageComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
-    contentService = fixture.debugElement.injector.get(ContentService);
-    spyOn(contentService, "getFeaturedSections").and.returnValue(Observable.of(httpResponseStub));
     fixture.detectChanges();
   });
 
@@ -94,23 +115,23 @@ describe("HomePageComponent", () => {
   });
 
   it("gets the aside content from the content service", () => {
-    expect(component.aside.articles[0].fullStory).toBe("Full Story");
-    expect(component.aside.articles[1].fullStory).toBe("Full Story");
+    expect(component.aside.articles[0]).toEqual(articleStub);
+    expect(component.aside.articles[1]).toEqual(articleStub);
   });
 
   it("gets the main content from the content service", () => {
-    expect(component.main.articles[0].fullStory).toBe("Full Story");
-    expect(component.main.articles[1].fullStory).toBe("Full Story");
-    expect(component.main.articles[2].fullStory).toBe("Full Story");
+    expect(component.main.articles[0]).toEqual(articleStub);
+    expect(component.main.articles[1]).toEqual(articleStub);
+    expect(component.main.articles[2]).toEqual(articleStub);
   });
 
   it("gets the opinion content from the content service", () => {
-    expect(component.opinion.articles[0].fullStory).toBe("Full Story");
-    expect(component.opinion.articles[1].fullStory).toBe("Full Story");
+    expect(component.opinion.articles[0]).toEqual(articleStub);
+    expect(component.opinion.articles[1]).toEqual(articleStub);
   });
 
   it("gets the travel content from the content service", () => {
-    expect(component.travel.articles[0].fullStory).toBe("Full Story");
-    expect(component.travel.articles[1].fullStory).toBe("Full Story");
+    expect(component.travel.articles[0]).toEqual(articleStub);
+    expect(component.travel.articles[1]).toEqual(articleStub);
   });
 });

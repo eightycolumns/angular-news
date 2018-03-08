@@ -132,11 +132,10 @@ describe("CategoryPageComponent", () => {
   });
 
   it("gets the main article from the content service", () => {
-    expect(component.mainArticle.fullStory).toBe("Full Story Two");
+    expect(component.mainArticle).toEqual(articlesStub[1]);
   });
 
   it("gets the aside articles from the content service", () => {
-    expect(component.asideArticles.length).toBe(1);
-    expect(component.asideArticles[0].fullStory).toBe("Full Story Three");
+    expect(component.asideArticles).toEqual(articlesStub.slice(2));
   });
 });
