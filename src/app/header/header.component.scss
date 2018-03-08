@@ -23,28 +23,56 @@ header {
       margin-left: 1rem;
     }
 
+    .settings {
+      float: right;
+
+      .icon {
+        margin-left: 0.25rem;
+      }
+    }
+
     .icon {
       color: $dark-gray;
       font-size: 1.25rem;
+      transition: all $transition-speed;
     }
 
     .text {
       bottom: 0.19rem;
-      color: $light-gray;
       font: 0.75rem "Arvo", serif;
       position: relative;
       transition: all $transition-speed;
     }
 
-    li:hover {
+    .sections .text,
+    .search .text {
+      color: $light-gray;
+    }
+
+    .settings .text {
+      color: $light-blue;
+    }
+
+    li {
       cursor: pointer;
     }
 
-    li:focus,
-    li:hover,
-    li:active {
+    .sections:focus,
+    .sections:hover,
+    .sections:active,
+    .search:focus,
+    .search:hover,
+    .search:active {
       .text {
         color: $dark-gray;
+      }
+    }
+
+    .settings:focus,
+    .settings:hover,
+    .settings:active {
+      .icon {
+        color: $light-blue;
       }
     }
   }

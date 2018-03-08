@@ -16,9 +16,11 @@ export class HeaderComponent implements OnInit {
 
   public categories: Category[];
   public date: string;
+  public username: string;
 
   constructor(private contentService: ContentService, private datePipe: DatePipe) {
     this.date = datePipe.transform(new Date(), "fullDate");
+    this.username = "joshstickles";
   }
 
   ngOnInit(): void {
