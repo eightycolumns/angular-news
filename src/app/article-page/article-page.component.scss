@@ -5,6 +5,13 @@
   width: 90%;
 
   main {
+    .httpErrorResponse {
+      font: bold 2.17rem "Arvo", serif;
+      line-height: 2.33rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
     article {
       margin-top: 1rem;
 

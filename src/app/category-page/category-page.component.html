@@ -1,5 +1,11 @@
-<div *ngIf="mainArticle && asideArticles" class="category-page">
-  <main [class.full-width]="asideArticles.length === 0">
+<div *ngIf="httpErrorResponse" class="category-page">
+  <main class="full-width">
+    <p class="httpErrorResponse">{{httpErrorResponse}}</p>
+  </main>
+</div>
+
+<div *ngIf="!httpErrorResponse" class="category-page">
+  <main *ngIf="mainArticle" [class.full-width]="asideArticles && asideArticles.length === 0">
     <article [routerLink]="mainArticle | routerLink">
       <h2 class="headline" [innerHtml]="mainArticle | headline"></h2>
 
@@ -19,7 +25,7 @@
     </article>
   </main>
 
-  <aside *ngIf="asideArticles.length > 0">
+  <aside *ngIf="asideArticles && asideArticles.length > 0">
     <article *ngFor="let article of asideArticles" [routerLink]="article | routerLink">
       <h2 class="headline" [innerHtml]="article | headline"></h2>
 

@@ -6,9 +6,6 @@
   width: 90%;
 
   main {
-    box-sizing: border-box;
-    padding-right: 1rem;
-
     article {
       .headline {
         font: italic bold 2.17rem "Arvo", serif;
@@ -36,9 +33,18 @@
 
   main.full-width {
     width: 100%;
+
+    .httpErrorResponse {
+      font: bold 2.17rem "Arvo", serif;
+      line-height: 2.33rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
   }
 
   main:not(.full-width) {
+    box-sizing: border-box;
+    padding-right: 1rem;
     width: 60%;
   }
 

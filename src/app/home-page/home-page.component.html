@@ -1,6 +1,12 @@
 <app-banner></app-banner>
 
-<div class="home-page">
+<div *ngIf="httpErrorResponse" class="home-page">
+  <main class="full-width">
+    <p class="httpErrorResponse">{{httpErrorResponse}}</p>
+  </main>
+</div>
+
+<div *ngIf="!httpErrorResponse" class="home-page">
   <aside *ngIf="aside">
     <article [routerLink]="aside.articles[0] | routerLink">
       <h3 class="headline" [innerHtml]="aside.articles[0] | headline"></h3>

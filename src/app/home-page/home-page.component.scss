@@ -29,10 +29,6 @@
   }
 
   main {
-    box-sizing: border-box;
-    padding: 0 0.5rem;
-    width: 40%;
-
     article {
       .headline {
         font: italic 1.33rem "Arvo", serif;
@@ -43,6 +39,23 @@
         font: 0.83rem "Arvo", serif;
         line-height: 1.25rem;
       }
+    }
+
+    main.full-width {
+      width: 100%;
+
+      .httpErrorResponse {
+        font: bold 2.17rem "Arvo", serif;
+        line-height: 2.33rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+    }
+
+    main:not(.full-width) {
+      box-sizing: border-box;
+      padding: 0 0.5rem;
+      width: 40%;
     }
 
     article:first-of-type .video {

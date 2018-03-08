@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
@@ -15,6 +16,8 @@ import { RouterLinkPipe } from "../common/pipe/router-link.pipe";
   styleUrls: [ "./home-page.component.scss" ]
 })
 export class HomePageComponent implements OnInit {
+  public httpErrorResponse: HttpErrorResponse;
+
   public aside: Section;
   public main: Section;
   public opinion: Section;
@@ -31,11 +34,14 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("CapTech News");
 
-    this.contentService.getFeaturedSections().subscribe((sections: Section[]) => {
-      this.aside = sections.find((section: Section) => section.description === "Aside");
-      this.main = sections.find((section: Section) => section.description === "Main");
-      this.opinion = sections.find((section: Section) => section.description === "Opinion");
-      this.travel = sections.find((section: Section) => section.description === "Travel");
-    });
+    this.contentService.getFeaturedSections().subscribe(
+      (sections: Section[]) => {
+        this.aside = sections.find((section: Section) => section.description === "Aside");
+        this.main = sections.find((section: Section) => section.description === "Main");
+        this.opinion = sections.find((section: Section) => section.description === "Opinion");
+        this.travel = sections.find((section: Section) => section.description === "Travel");
+      },
+      (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
+    );
   }
 }

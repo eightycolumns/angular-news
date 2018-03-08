@@ -1,5 +1,6 @@
 import { ActivatedRoute } from "@angular/router";
 import { Component } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
 import { OnInit } from "@angular/core";
 import { Params } from "@angular/router";
 import { Router } from "@angular/router";
@@ -14,6 +15,8 @@ import { ContentService } from "../common/service/content.service";
   styleUrls: [ "./article-page.component.scss" ]
 })
 export class ArticlePageComponent implements OnInit {
+  public httpErrorResponse: HttpErrorResponse;
+
   public article: Article;
   public fullStoryOptions: string[];
 
@@ -29,18 +32,21 @@ export class ArticlePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contentService.getArticles().subscribe((articles: Article[]) => {
-      this.activatedRoute.params.subscribe((params: Params) => {
-        const article = articles.find(article => article.headLine === decodeURI(params.headline));
+    this.contentService.getArticles().subscribe(
+      (articles: Article[]) => {
+        this.activatedRoute.params.subscribe((params: Params) => {
+          const article = articles.find(article => article.headLine === decodeURI(params.headline));
 
-        if (article === undefined) {
-          this.router.navigateByUrl("");
-        } else {
-          this.titleService.setTitle(article.headLine);
-          this.article = article;
-        }
-      });
-    });
+          if (article === undefined) {
+            this.router.navigateByUrl("");
+          } else {
+            this.titleService.setTitle(article.headLine);
+            this.article = article;
+          }
+        });
+      },
+      (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
+    );
   }
 
   public displayVideo(article: Article): boolean {
