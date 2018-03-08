@@ -1,0 +1,46 @@
+@import "main.scss";
+
+.not-found-page {
+  margin: 0 auto;
+  width: 90%;
+
+  main {
+    article {
+      margin-top: 1rem;
+
+      .headline {
+        font: italic bold 2.17rem "Arvo", serif;
+        line-height: 2.33rem;
+      }
+
+      .photo {
+        align-items: center;
+        background-color: $dark-gray;
+        color: white;
+        display: flex;
+        font: 1rem "Arvo", serif;
+        height: 0;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 15% 0;
+      }
+
+      .caption {
+        font: italic 0.83rem "Arvo", serif;
+        line-height: 1.25rem;
+        margin-top: 0.5rem;
+      }
+
+      .body {
+        font: 0.83rem "Arvo", serif;
+        line-height: 1.25rem;
+        margin-top: 1rem;
+
+        .placeline {
+          font-weight: bold;
+          margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+}

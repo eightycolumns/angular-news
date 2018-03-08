@@ -38,7 +38,7 @@ export class ArticlePageComponent implements OnInit {
           const article = articles.find(article => article.headLine === decodeURI(params.headline));
 
           if (article === undefined) {
-            this.router.navigateByUrl("");
+            this.router.navigateByUrl("not-found");
           } else {
             this.titleService.setTitle(article.headLine);
             this.article = article;

@@ -6,11 +6,17 @@ import { Routes } from "@angular/router";
 import { ArticlePageComponent } from "../article-page/article-page.component";
 import { CategoryPageComponent } from "../category-page/category-page.component";
 import { HomePageComponent } from "../home-page/home-page.component";
+import { NotFoundPageComponent } from "../not-found-page/not-found-page.component";
 
 const routes: Routes = [
   {
-    path: "",
+    path: "home",
     component: HomePageComponent
+  },
+  {
+    path: "",
+    redirectTo: "/home",
+    pathMatch: "full"
   },
   {
     path: "category/:shortName",
@@ -19,6 +25,15 @@ const routes: Routes = [
   {
     path: "article/:headline",
     component: ArticlePageComponent
+  },
+  {
+    path: "not-found",
+    component: NotFoundPageComponent
+  },
+  {
+    path: "**",
+    redirectTo: "/not-found",
+    pathMatch: "full"
   }
 ];
 

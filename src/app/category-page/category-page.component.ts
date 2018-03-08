@@ -49,7 +49,7 @@ export class CategoryPageComponent implements OnInit {
           const category = categories.find(category => category.shortName === params.shortName);
 
           if (category === undefined) {
-            this.router.navigateByUrl("");
+            this.router.navigateByUrl("not-found");
           } else {
             this.titleService.setTitle(category.displayName);
 

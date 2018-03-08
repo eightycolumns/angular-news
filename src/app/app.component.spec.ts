@@ -18,6 +18,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { HtmlEntitiesPipe } from "./common/pipe/html-entities.pipe";
 import { ImagesPipe } from "./common/pipe/images.pipe";
 import { NbspPipe } from "./common/pipe/nbsp.pipe";
+import { NotFoundPageComponent } from "./not-found-page/not-found-page.component";
 import { PlacelinePipe } from "./common/pipe/placeline.pipe";
 import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
 
@@ -38,6 +39,7 @@ describe("AppComponent", () => {
         HtmlEntitiesPipe,
         ImagesPipe,
         NbspPipe,
+        NotFoundPageComponent,
         PlacelinePipe,
         RouterLinkPipe,
       ],
