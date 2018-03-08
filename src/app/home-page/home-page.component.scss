@@ -41,23 +41,6 @@
       }
     }
 
-    main.full-width {
-      width: 100%;
-
-      .httpErrorResponse {
-        font: bold 2.17rem "Arvo", serif;
-        line-height: 2.33rem;
-        margin-top: 1rem;
-        text-align: center;
-      }
-    }
-
-    main:not(.full-width) {
-      box-sizing: border-box;
-      padding: 0 0.5rem;
-      width: 40%;
-    }
-
     article:first-of-type .video {
       height: 0;
       margin-bottom: 1rem;
@@ -79,6 +62,23 @@
       padding: 12.5% 0;
       width: 25%;
     }
+  }
+
+  main.full-width {
+    width: 100%;
+
+    .httpErrorResponse {
+      font: bold 2.17rem "Arvo", serif;
+      line-height: 2.33rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+
+  main:not(.full-width) {
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    width: 40%;
   }
 
   aside:last-of-type {
