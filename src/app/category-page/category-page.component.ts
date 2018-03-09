@@ -53,7 +53,7 @@ export class CategoryPageComponent implements OnInit {
           } else {
             this.titleService.setTitle(category.displayName);
 
-            this.contentService.getArticlesByCategory(category.id).subscribe(
+            this.contentService.getArticlesByCategoryId(category.id).subscribe(
               (articles: Article[]) => {
                 this.mainArticle = articles[0];
                 this.asideArticles = articles.slice(1);

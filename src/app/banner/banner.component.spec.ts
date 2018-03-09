@@ -10,7 +10,6 @@ import { ContentService } from "../common/service/content.service";
 
 describe("BannerComponent", () => {
   let component: BannerComponent;
-  let contentService: ContentService;
   let fixture: ComponentFixture<BannerComponent>;
 
   const bannersStub = [
@@ -28,7 +27,7 @@ describe("BannerComponent", () => {
     getBanners: (): Observable<Banner[]> => {
       return Observable.create(observer => observer.next(bannersStub));
     }
-  }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

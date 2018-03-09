@@ -20,6 +20,41 @@
 
         <span *ngIf="article.nsfw" class="nsfw">[NSFW]</span>
       </p>
+
+      <div class="comments">
+        <h3>Comments</h3>
+
+        <div *ngFor="let page of paginatedComments; let pageNumber = index">
+          <div *ngIf="pageNumber < pagesDisplayed">
+            <div *ngFor="let comment of page" class="comment">
+              <p>
+                <span class="name">{{comment.name}}</span>
+                <span class="date">{{formatDate(comment.createdDate)}}</span>
+              </p>
+
+              <p class="text">{{comment.commentText}}</p>
+            </div>
+
+            <button
+              *ngIf="displayShowMoreButton(pageNumber)"
+              class="show-more-button"
+              type="button"
+              (click)="showMore()">
+
+              Show More
+            </button>
+
+            <button
+              *ngIf="displayShowLessButton(pageNumber)"
+              class="show-less-button"
+              type="button"
+              (click)="showLess()">
+
+              Show Less
+            </button>
+          </div>
+        </div>
+      </div>
     </article>
   </main>
 </div>

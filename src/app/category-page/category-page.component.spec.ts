@@ -79,9 +79,9 @@ describe("CategoryPageComponent", () => {
   ];
 
   const contentServiceStub = {
-    getArticlesByCategory: (id: number): Observable<Article[]> => {
+    getArticlesByCategoryId: (categoryId: number): Observable<Article[]> => {
       return Observable.create(observer => observer.next(
-        articlesStub.filter(article => article.categoryId === id)
+        articlesStub.filter(article => article.categoryId === categoryId)
       ));
     },
 

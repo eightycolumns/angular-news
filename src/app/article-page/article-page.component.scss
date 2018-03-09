@@ -1,5 +1,7 @@
 @import "main.scss";
 
+$transition-speed: 0.2s ease-in-out;
+
 .article-page ::ng-deep {
   margin: 0 auto;
   width: 90%;
@@ -52,6 +54,60 @@
         .indent {
           display: inline-block;
           width: 2rem;
+        }
+      }
+
+      .comments {
+        border-top: 1px solid $dark-gray;
+        line-height: 1.5rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+
+        h3 {
+          font: bold 1.5rem "Arvo", serif;
+        }
+
+        .comment {
+          border-top: 1px dotted $light-gray;
+          margin-top: 1rem;
+          padding-top: 1rem;
+
+          .name {
+            font: bold 0.83rem "Arvo", serif;
+            text-transform: uppercase;
+          }
+
+          .date {
+            font: 0.83rem "Arvo", serif;
+            float: right;
+          }
+
+          .text {
+            font: 1rem "Arvo", serif;
+            margin-top: 1rem;
+          }
+        }
+
+        button {
+          background-color: $dark-gray;
+          border: 2px solid $dark-gray;
+          border-radius: 2px;
+          color: white;
+          font: 1rem "Arvo", serif;
+          margin-top: 1rem;
+          padding: 0.25rem 1rem;
+          transition: all $transition-speed;
+        }
+
+        button:first-of-type {
+          margin-right: 1rem;
+        }
+
+        button:focus,
+        button:hover,
+        button:active {
+          background-color: white;
+          color: $dark-gray;
         }
       }
     }

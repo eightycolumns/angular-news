@@ -19,7 +19,6 @@ import { Section } from "../common/interface/section";
 
 describe("HomePageComponent", () => {
   let component: HomePageComponent;
-  let contentService: ContentService;
   let fixture: ComponentFixture<HomePageComponent>;
 
   const bannersStub = [
@@ -77,7 +76,7 @@ describe("HomePageComponent", () => {
     getFeaturedSections: (): Observable<Section[]> => {
       return Observable.create(observer => observer.next(featuredSectionsStub));
     }
-  }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

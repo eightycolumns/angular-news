@@ -9,6 +9,7 @@ import { retry } from "rxjs/operators";
 import { Article } from "../interface/article";
 import { Banner } from "../interface/banner";
 import { Category } from "../interface/category";
+import { Comment } from "../interface/comment";
 import { Section } from "../interface/section";
 
 @Injectable()
@@ -26,8 +27,8 @@ export class ContentService {
     );
   }
 
-  public getArticlesByCategory(id: number): Observable<Article[]> {
-    const url = `${this.baseUrl}/Categories/${id}/Articles`;
+  public getArticlesByCategoryId(categoryId: number): Observable<Article[]> {
+    const url = `${this.baseUrl}/Categories/${categoryId}/Articles`;
 
     return this.httpClient.get<Article[]>(url).pipe(
       retry(3),
@@ -53,10 +54,28 @@ export class ContentService {
     );
   }
 
+  public getPaginatedCommentsByArticleId(articleId: number, pageNumber: number, pageSize: number): Observable<Comment[]> {
+    const url = `${this.baseUrl}/Articles/${articleId}/Comments/${pageNumber}/${pageSize}`;
+
+    return this.httpClient.get<Comment[]>(url).pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
   public getFeaturedSections(): Observable<Section[]> {
     const url = `${this.baseUrl}/FeaturedSections`;
 
     return this.httpClient.get<Section[]>(url).pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  public postComment(comment: Comment): Observable<Comment> {
+    const url = `${this.baseUrl}/Comments`;
+
+    return this.httpClient.post<Comment>(url, comment).pipe(
       retry(3),
       catchError(this.handleError)
     );
