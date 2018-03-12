@@ -24,8 +24,8 @@
       <div class="comments">
         <h3>Comments</h3>
 
-        <form>
-          <input placeholder="Post a new comment&hellip;">
+        <form (ngSubmit)="onSubmit()">
+          <input [(ngModel)]="commentText" name="commentText" placeholder="Post a new comment&hellip;">
           <button>Submit</button>
         </form>
 

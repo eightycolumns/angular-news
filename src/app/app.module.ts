@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { DatePipe } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
@@ -48,6 +49,7 @@ import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule,
   ],

@@ -22,6 +22,8 @@ export class ArticlePageComponent implements OnInit {
   public article: Article;
   public fullStoryOptions: string[];
 
+  public commentText: string;
+
   public paginatedComments: Comment[][];
   public pagesDisplayed: number;
   private pageSize; number;
@@ -73,12 +75,24 @@ export class ArticlePageComponent implements OnInit {
     return article.hasVideoPlaceholder || article.numberOfImages > 0;
   }
 
-  public displayShowLessButton(pageNumber: number): boolean {
-    return this.pagesDisplayed > 1 && pageNumber === this.pagesDisplayed - 1;
-  }
+  public onSubmit(): void {
+    const newComment = {
+      articleId: this.article.id,
+      commentText: this.commentText,
+      createdDate: (new Date()).toISOString(),
+      emailAddress: "jstickles@captechventures.com",
+      id: this.nextCommentId(),
+      name: "Josh Stickles",
+      updatedDate: (new Date()).toISOString()
+    };
 
-  public displayShowMoreButton(pageNumber: number): boolean {
-    return this.pagesDisplayed < this.paginatedComments.length && pageNumber === this.pagesDisplayed - 1;
+    this.contentService.postComment(newComment).subscribe(
+      (comment: Comment) => {
+        this.commentText = "";
+        this.getPaginatedComments();
+      },
+      (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
+    );
   }
 
   public formatDate(date: string): string {
@@ -88,8 +102,16 @@ export class ArticlePageComponent implements OnInit {
     return `${shortTime}, ${fullDate}`;
   }
 
+  public displayShowLessButton(pageNumber: number): boolean {
+    return this.pagesDisplayed > 1 && pageNumber === this.pagesDisplayed - 1;
+  }
+
   public showLess(): void {
     this.pagesDisplayed -= 1;
+  }
+
+  public displayShowMoreButton(pageNumber: number): boolean {
+    return this.pagesDisplayed < this.paginatedComments.length && pageNumber === this.pagesDisplayed - 1;
   }
 
   public showMore(): void {
@@ -103,5 +125,12 @@ export class ArticlePageComponent implements OnInit {
         this.getPaginatedComments(pageNumber + 1);
       }
     });
+  }
+
+  private nextCommentId(): number {
+    const lastPageOfComments = this.paginatedComments[this.paginatedComments.length - 1];
+    const lastComment = lastPageOfComments[lastPageOfComments.length - 1];
+
+    return lastComment.id + 1;
   }
 }
