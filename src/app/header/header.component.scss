@@ -57,23 +57,15 @@ header {
       cursor: pointer;
     }
 
-    .sections:focus,
     .sections:hover,
-    .sections:active,
-    .search:focus,
-    .search:hover,
-    .search:active {
+    .search:hover {
       .text {
         color: $dark-gray;
       }
     }
 
-    .settings:focus,
-    .settings:hover,
-    .settings:active {
-      .icon {
-        color: $light-blue;
-      }
+    .settings:hover .icon {
+      color: $light-blue;
     }
   }
 
@@ -121,12 +113,10 @@ header {
       transition: all $transition-speed;
     }
 
-    li:focus,
-    li:hover,
-    li:active {
-      a {
-        border-bottom: 2px solid $dark-gray;
-      }
+    li:hover a,
+    a:focus {
+      border-bottom: 2px solid $dark-gray;
+      outline: none;
     }
   }
 }

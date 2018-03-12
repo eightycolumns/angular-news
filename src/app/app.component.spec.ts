@@ -1,5 +1,6 @@
 import { async } from "@angular/core/testing";
 import { DatePipe } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { TestBed } from "@angular/core/testing";
 
@@ -45,6 +46,7 @@ describe("AppComponent", () => {
       ],
       imports: [
         AppRoutingModule,
+        FormsModule,
         HttpClientModule,
       ],
       providers: [

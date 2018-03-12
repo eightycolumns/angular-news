@@ -79,10 +79,15 @@ $transition-speed: 0.2s ease-in-out;
             line-height: 1rem;
             outline: none;
             padding: 0.5rem;
+            transition: all $transition-speed;
           }
 
           input::placeholder {
             color: $light-gray;
+          }
+
+          .commentError {
+            border: 1px solid red;
           }
 
           button {
@@ -139,8 +144,7 @@ $transition-speed: 0.2s ease-in-out;
         }
 
         button:focus,
-        button:hover,
-        button:active {
+        button:hover {
           background-color: white;
           color: $dark-gray;
         }

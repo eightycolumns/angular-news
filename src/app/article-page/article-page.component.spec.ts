@@ -2,6 +2,7 @@ import { ActivatedRoute } from "@angular/router";
 import { async } from "@angular/core/testing";
 import { ComponentFixture} from "@angular/core/testing";
 import { DatePipe } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { Observable } from "rxjs/Observable";
 import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
@@ -84,6 +85,7 @@ describe("ArticlePageComponent", () => {
         PlacelinePipe,
       ],
       imports: [
+        FormsModule,
         RouterTestingModule,
       ],
       providers: [

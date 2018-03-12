@@ -1,11 +1,13 @@
 import { ActivatedRoute } from "@angular/router";
 import { Component } from "@angular/core";
 import { DatePipe } from "@angular/common";
+import { ElementRef } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 import { OnInit } from "@angular/core";
 import { Params } from "@angular/router";
 import { Router } from "@angular/router";
 import { Title } from "@angular/platform-browser";
+import { ViewChild } from "@angular/core";
 
 import { Article } from "../common/interface/article";
 import { Comment } from "../common/interface/comment";
@@ -17,11 +19,14 @@ import { ContentService } from "../common/service/content.service";
   styleUrls: [ "./article-page.component.scss" ]
 })
 export class ArticlePageComponent implements OnInit {
+  @ViewChild("submitButton") submitButton: ElementRef;
+
   public httpErrorResponse: HttpErrorResponse;
 
   public article: Article;
   public fullStoryOptions: string[];
 
+  public commentError: boolean;
   public commentText: string;
 
   public paginatedComments: Comment[][];
@@ -38,6 +43,9 @@ export class ArticlePageComponent implements OnInit {
     this.fullStoryOptions = [
       "DELETE_FIRST_SENTENCE"
     ];
+
+    this.commentError = false;
+    this.commentText = "";
 
     this.paginatedComments = [];
     this.pagesDisplayed = 1;
@@ -76,23 +84,31 @@ export class ArticlePageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    const newComment = {
-      articleId: this.article.id,
-      commentText: this.commentText,
-      createdDate: (new Date()).toISOString(),
-      emailAddress: "jstickles@captechventures.com",
-      id: this.nextCommentId(),
-      name: "Josh Stickles",
-      updatedDate: (new Date()).toISOString()
-    };
+    this.submitButton.nativeElement.blur();
 
-    this.contentService.postComment(newComment).subscribe(
-      (comment: Comment) => {
-        this.commentText = "";
-        this.getPaginatedComments();
-      },
-      (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
-    );
+    if (this.commentText.trim() === "") {
+      this.commentError = true;
+    } else {
+      this.commentError = false;
+
+      const newComment = {
+        articleId: this.article.id,
+        commentText: this.commentText,
+        createdDate: (new Date()).toISOString(),
+        emailAddress: "jstickles@captechventures.com",
+        id: this.nextCommentId(),
+        name: "Josh Stickles",
+        updatedDate: (new Date()).toISOString()
+      };
+
+      this.contentService.postComment(newComment).subscribe(
+        (comment: Comment) => {
+          this.commentText = "";
+          this.getPaginatedComments();
+        },
+        (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
+      );
+    }
   }
 
   public formatDate(date: string): string {

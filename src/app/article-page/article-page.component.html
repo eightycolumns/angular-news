@@ -25,8 +25,14 @@
         <h3>Comments</h3>
 
         <form (ngSubmit)="onSubmit()">
-          <input [(ngModel)]="commentText" name="commentText" placeholder="Post a new comment&hellip;">
-          <button>Submit</button>
+          <input
+            [class.commentError]="commentError"
+            maxlength="256"
+            name="commentText"
+            [(ngModel)]="commentText"
+            placeholder="Post a new comment&hellip;">
+
+          <button #submitButton>Submit</button>
         </form>
 
         <div *ngFor="let page of paginatedComments; let pageNumber = index">
