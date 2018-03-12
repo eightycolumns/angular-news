@@ -67,11 +67,30 @@ $transition-speed: 0.2s ease-in-out;
           font: bold 1.5rem "Arvo", serif;
         }
 
-        .comment {
-          border-top: 1px dotted $light-gray;
+        form {
+          display: flex;
           margin-top: 1rem;
-          padding-top: 1rem;
 
+          input {
+            border: 1px solid $dark-gray;
+            border-radius: 2px;
+            flex: 2;
+            font: 1rem "Arvo", serif;
+            line-height: 1rem;
+            outline: none;
+            padding: 0.5rem;
+          }
+
+          input::placeholder {
+            color: $light-gray;
+          }
+
+          button {
+            margin-left: 1rem;
+          }
+        }
+
+        .comment {
           .name {
             font: bold 0.83rem "Arvo", serif;
             text-transform: uppercase;
@@ -88,19 +107,34 @@ $transition-speed: 0.2s ease-in-out;
           }
         }
 
+        .comment:first-of-type {
+          margin-top: 2rem;
+        }
+
+        .comment:not(:first-of-type) {
+          border-top: 1px dotted $light-gray;
+          margin-top: 1rem;
+          padding-top: 1rem;
+        }
+
         button {
           background-color: $dark-gray;
-          border: 2px solid $dark-gray;
+          border: 1px solid $dark-gray;
           border-radius: 2px;
           color: white;
           font: 1rem "Arvo", serif;
-          margin-top: 1rem;
-          padding: 0.25rem 1rem;
+          line-height: 1rem;
+          padding: 0.5rem 1rem;
           transition: all $transition-speed;
         }
 
-        button:first-of-type {
+        .show-more-button {
           margin-right: 1rem;
+        }
+
+        .show-more-button,
+        .show-less-button {
+          margin-top: 1rem;
         }
 
         button:focus,
