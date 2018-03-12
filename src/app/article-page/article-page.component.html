@@ -24,7 +24,7 @@
       <div class="comments">
         <h3>Comments</h3>
 
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="submitComment()">
           <input
             [class.commentError]="commentError"
             maxlength="256"
@@ -32,18 +32,16 @@
             [(ngModel)]="commentText"
             placeholder="Post a new comment&hellip;">
 
-          <button #submitButton>Submit</button>
+          <button #submitButton class="submit-button">Submit</button>
         </form>
 
         <div *ngFor="let page of paginatedComments; let pageNumber = index">
-          <div *ngIf="pageNumber < pagesDisplayed">
+          <div *ngIf="page.length > 0 && pageNumber < pagesDisplayed">
             <div *ngFor="let comment of page" class="comment">
-              <p>
-                <span class="name">{{comment.name}}</span>
-                <span class="date">{{formatDate(comment.createdDate)}}</span>
-              </p>
-
+              <p class="name">{{comment.name}}</p>
+              <p class="date">{{formatDate(comment.createdDate)}}</p>
               <p class="text">{{comment.commentText}}</p>
+              <p><button (click)="deleteComment(comment)" class="delete-button" type="button">delete</button></p>
             </div>
 
             <button

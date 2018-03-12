@@ -90,25 +90,78 @@ $transition-speed: 0.2s ease-in-out;
             border: 1px solid red;
           }
 
-          button {
+          .submit-button {
             margin-left: 1rem;
           }
         }
 
+        .submit-button,
+        .show-more-button,
+        .show-less-button {
+          background-color: $dark-gray;
+          border: 1px solid $dark-gray;
+          border-radius: 2px;
+          color: white;
+          font: 1rem "Arvo", serif;
+          line-height: 1rem;
+          outline: none;
+          padding: 0.5rem 1rem;
+          transition: all $transition-speed;
+        }
+
+        .submit-button:focus,
+        .submit-button:hover,
+        .show-more-button:focus,
+        .show-more-button:hover,
+        .show-less-button:focus,
+        .show-less-button:hover {
+          background-color: white;
+          color: $dark-gray;
+        }
+
         .comment {
+          display: flex;
+          flex-wrap: wrap;
+
           .name {
             font: bold 0.83rem "Arvo", serif;
             text-transform: uppercase;
+            width: 50%;
           }
 
           .date {
-            font: 0.83rem "Arvo", serif;
-            float: right;
+            font: bold 0.83rem "Arvo", serif;
+            text-align: right;
+            width: 50%;
           }
 
           .text {
             font: 1rem "Arvo", serif;
             margin-top: 1rem;
+            width: 75%;
+          }
+
+          p:last-of-type {
+            margin-top: 1rem;
+            text-align: right;
+            width: 25%;
+
+            .delete-button {
+              border-color: $dark-gray;
+              border-style: solid;
+              border-width: 0 0 2px;
+              color: $dark-gray;
+              font: 1rem "Arvo", serif;
+              outline: none;
+              transition: all $transition-speed;
+            }
+
+            .delete-button:focus,
+            .delete-button:hover {
+              border: 0;
+              border-bottom: 2px solid $light-gray;
+              color: $light-gray;
+            }
           }
         }
 
@@ -122,18 +175,6 @@ $transition-speed: 0.2s ease-in-out;
           padding-top: 1rem;
         }
 
-        button {
-          background-color: $dark-gray;
-          border: 1px solid $dark-gray;
-          border-radius: 2px;
-          color: white;
-          font: 1rem "Arvo", serif;
-          line-height: 1rem;
-          outline: none;
-          padding: 0.5rem 1rem;
-          transition: all $transition-speed;
-        }
-
         .show-more-button {
           margin-right: 1rem;
         }
@@ -141,12 +182,6 @@ $transition-speed: 0.2s ease-in-out;
         .show-more-button,
         .show-less-button {
           margin-top: 1rem;
-        }
-
-        button:focus,
-        button:hover {
-          background-color: white;
-          color: $dark-gray;
         }
       }
     }

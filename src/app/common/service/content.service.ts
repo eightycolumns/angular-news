@@ -18,6 +18,15 @@ export class ContentService {
 
   constructor(private httpClient: HttpClient) {}
 
+  public deleteComment(comment: Comment): Observable<Comment> {
+    const url = `${this.baseUrl}/Comments/${comment.id}`;
+
+    return this.httpClient.delete<Comment>(url).pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
   public getArticles(): Observable<Article[]> {
     const url = `${this.baseUrl}/Articles`;
 

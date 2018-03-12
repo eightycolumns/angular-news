@@ -83,7 +83,7 @@ export class ArticlePageComponent implements OnInit {
     return article.hasVideoPlaceholder || article.numberOfImages > 0;
   }
 
-  public onSubmit(): void {
+  public submitComment(): void {
     this.submitButton.nativeElement.blur();
 
     if (this.commentText.trim() === "") {
@@ -95,9 +95,9 @@ export class ArticlePageComponent implements OnInit {
         articleId: this.article.id,
         commentText: this.commentText,
         createdDate: (new Date()).toISOString(),
-        emailAddress: "jstickles@captechventures.com",
-        id: this.nextCommentId(),
-        name: "Josh Stickles",
+        emailAddress: "sjickles@captechventures.com",
+        id: 0,
+        name: "Stosh Jickles",
         updatedDate: (new Date()).toISOString()
       };
 
@@ -118,6 +118,13 @@ export class ArticlePageComponent implements OnInit {
     return `${shortTime}, ${fullDate}`;
   }
 
+  public deleteComment(comment: Comment): void {
+    this.contentService.deleteComment(comment).subscribe(
+      (comment: Comment) => this.getPaginatedComments(),
+      (httpErrorResponse: HttpErrorResponse) => this.httpErrorResponse = httpErrorResponse
+    );
+  }
+
   public displayShowLessButton(pageNumber: number): boolean {
     return this.pagesDisplayed > 1 && pageNumber === this.pagesDisplayed - 1;
   }
@@ -136,17 +143,11 @@ export class ArticlePageComponent implements OnInit {
 
   private getPaginatedComments(pageNumber = 0): void {
     this.contentService.getPaginatedCommentsByArticleId(this.article.id, pageNumber, this.pageSize).subscribe((comments: Comment[]) => {
+      this.paginatedComments[pageNumber] = comments;
+
       if (comments.length > 0) {
-        this.paginatedComments[pageNumber] = comments;
         this.getPaginatedComments(pageNumber + 1);
       }
     });
-  }
-
-  private nextCommentId(): number {
-    const lastPageOfComments = this.paginatedComments[this.paginatedComments.length - 1];
-    const lastComment = lastPageOfComments[lastPageOfComments.length - 1];
-
-    return lastComment.id + 1;
   }
 }
