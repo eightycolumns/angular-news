@@ -5,7 +5,7 @@
 </div>
 
 <div *ngIf="!httpErrorResponse" class="category-page">
-  <main *ngIf="mainArticle" [class.full-width]="asideArticles && asideArticles.length === 0">
+  <main *ngIf="mainArticle" [class.full-width]="asideArticles?.length === 0">
     <article>
       <h2
         class="headline"
@@ -29,7 +29,7 @@
     </article>
   </main>
 
-  <aside *ngIf="asideArticles && asideArticles.length > 0">
+  <aside *ngIf="asideArticles?.length > 0">
     <article *ngFor="let article of asideArticles">
       <h2
         class="headline"
