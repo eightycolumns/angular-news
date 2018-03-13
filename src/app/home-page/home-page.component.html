@@ -8,8 +8,12 @@
 
 <div *ngIf="!httpErrorResponse" class="home-page">
   <aside *ngIf="aside">
-    <article [routerLink]="aside.articles[0] | routerLink">
-      <h3 class="headline" [innerHtml]="aside.articles[0] | headline"></h3>
+    <article>
+      <h3
+        class="headline"
+        [innerHtml]="aside.articles[0] | headline"
+        [routerLink]="aside.articles[0] | routerLink">
+      </h3>
 
       <p class="body">
         <span class="placeline">{{aside.articles[0] | placeline}}</span>
@@ -18,8 +22,12 @@
       </p>
     </article>
 
-    <article [routerLink]="aside.articles[1] | routerLink">
-      <h3 class="headline" [innerHtml]="aside.articles[1] | headline"></h3>
+    <article>
+      <h3
+        class="headline"
+        [innerHtml]="aside.articles[1] | headline"
+        [routerLink]="aside.articles[1] | routerLink">
+      </h3>
 
       <p class="body">
         <span class="placeline">{{aside.articles[1] | placeline}}</span>
@@ -30,10 +38,14 @@
   </aside>
 
   <main *ngIf="main">
-    <article [routerLink]="main.articles[0] | routerLink">
+    <article>
       <div *ngIf="main.articles[0].hasVideoPlaceholder" class="video">[VIDEO]</div>
 
-      <h3 class="headline" [innerHtml]="main.articles[0] | headline"></h3>
+      <h3
+        class="headline"
+        [innerHtml]="main.articles[0] | headline"
+        [routerLink]="main.articles[0] | routerLink">
+      </h3>
 
       <p class="body">
         <span class="placeline">{{main.articles[0] | placeline}}</span>
@@ -42,8 +54,12 @@
       </p>
     </article>
 
-    <article [routerLink]="main.articles[1] | routerLink">
-      <h3 class="headline" [innerHtml]="main.articles[1] | headline"></h3>
+    <article>
+      <h3
+        class="headline"
+        [innerHtml]="main.articles[1] | headline"
+        [routerLink]="main.articles[1] | routerLink">
+      </h3>
 
       <p class="body">
         <span class="placeline">{{main.articles[1] | placeline}}</span>
@@ -52,10 +68,14 @@
       </p>
     </article>
 
-    <article [routerLink]="main.articles[2] | routerLink">
+    <article>
       <div *ngIf="main.articles[2].numberOfImages > 0" class="photo">[PHOTO]</div>
 
-      <h3 class="headline" [innerHtml]="main.articles[2] | headline"></h3>
+      <h3
+        class="headline"
+        [innerHtml]="main.articles[2] | headline"
+        [routerLink]="main.articles[2] | routerLink">
+      </h3>
 
       <p class="body">
         <span class="placeline">{{main.articles[2] | placeline}}</span>
@@ -69,8 +89,12 @@
     <section *ngIf="opinion" class="opinion">
       <h2>The Opinion Pages</h2>
 
-      <article [routerLink]="opinion.articles[0] | routerLink">
-        <h3 class="headline" [innerHtml]="opinion.articles[0] | headline"></h3>
+      <article>
+        <h3
+          class="headline"
+          [innerHtml]="opinion.articles[0] | headline"
+          [routerLink]="opinion.articles[0] | routerLink">
+        </h3>
 
         <p class="body">
           <span class="placeline">{{opinion.articles[0] | placeline}}</span>
@@ -79,8 +103,12 @@
         </p>
       </article>
 
-      <article [routerLink]="opinion.articles[1] | routerLink">
-        <h3 class="headline" [innerHtml]="opinion.articles[1] | headline"></h3>
+      <article>
+        <h3
+          class="headline"
+          [innerHtml]="opinion.articles[1] | headline"
+          [routerLink]="opinion.articles[1] | routerLink">
+        </h3>
 
         <p class="body">
           <span class="placeline">{{opinion.articles[1] | placeline}}</span>
@@ -93,14 +121,22 @@
     <section *ngIf="travel" class="travel">
       <h2>TRAVEL</h2>
 
-      <article [routerLink]="travel.articles[0] | routerLink">
-        <h3 class="headline" [innerHtml]="travel.articles[0] | headline"></h3>
+      <article>
+        <h3
+          class="headline"
+          [innerHtml]="travel.articles[0] | headline"
+          [routerLink]="travel.articles[0] | routerLink">
+        </h3>
 
         <div *ngFor="let image of (travel.articles[0] | images:2)" class="photo">[PHOTO]</div>
       </article>
 
-      <article [routerLink]="travel.articles[1] | routerLink">
-        <h3 class="headline" [innerHtml]="travel.articles[1] | headline"></h3>
+      <article>
+        <h3
+          class="headline"
+          [innerHtml]="travel.articles[1] | headline"
+          [routerLink]="travel.articles[1] | routerLink">
+        </h3>
 
         <div *ngIf="travel.articles[1].numberOfImages > 0" class="photo">[PHOTO]</div>
 

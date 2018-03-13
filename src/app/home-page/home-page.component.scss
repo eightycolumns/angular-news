@@ -1,5 +1,7 @@
 @import "main.scss";
 
+$transition-speed: 0.2s ease-in-out;
+
 .home-page ::ng-deep {
   display: flex;
   margin: 0 auto;
@@ -189,9 +191,19 @@
   }
 
   article {
-    cursor: pointer;
     margin-top: 1rem;
-    outline: none;
+
+    .headline {
+      cursor: pointer;
+      outline: none;
+      transition: color $transition-speed;
+    }
+
+    .headline:focus,
+    .headline:hover,
+    .headline:active {
+      color: $light-gray;
+    }
 
     .video,
     .photo {

@@ -6,8 +6,12 @@
 
 <div *ngIf="!httpErrorResponse" class="category-page">
   <main *ngIf="mainArticle" [class.full-width]="asideArticles && asideArticles.length === 0">
-    <article [routerLink]="mainArticle | routerLink">
-      <h2 class="headline" [innerHtml]="mainArticle | headline"></h2>
+    <article>
+      <h2
+        class="headline"
+        [innerHtml]="mainArticle | headline"
+        [routerLink]="mainArticle | routerLink">
+      </h2>
 
       <div *ngIf="displayVideo(mainArticle)" class="video">[VIDEO]</div>
       <div *ngIf="displayPhoto(mainArticle)" class="photo">[PHOTO]</div>
@@ -26,8 +30,12 @@
   </main>
 
   <aside *ngIf="asideArticles && asideArticles.length > 0">
-    <article *ngFor="let article of asideArticles" [routerLink]="article | routerLink">
-      <h2 class="headline" [innerHtml]="article | headline"></h2>
+    <article *ngFor="let article of asideArticles">
+      <h2
+        class="headline"
+        [innerHtml]="article | headline"
+        [routerLink]="article | routerLink">
+      </h2>
 
       <p class="body">
         <span class="placeline">{{article | placeline}}</span>
