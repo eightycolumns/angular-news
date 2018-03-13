@@ -5,9 +5,10 @@ $transition-speed: 0.5s ease-in-out;
 .banner {
   background-color: $light-gray;
   margin: 0 auto;
+  max-width: $app-max-width;
   position: relative;
   text-align: center;
-  width: 90%;
+  width: $app-width;
 
   h1,
   h2 {
@@ -25,13 +26,19 @@ $transition-speed: 0.5s ease-in-out;
     opacity: 0;
     padding: 0 4rem;
     transform: scaleY(0);
-    transition: all $transition-speed;
+    transition:
+      line-height $transition-speed,
+      opacity $transition-speed,
+      padding $transition-speed,
+      transform $transition-speed;
   }
 
   app-call-to-action {
     position: absolute;
     right: 0.75rem;
-    transition: all $transition-speed;
+    transition:
+      opacity $transition-speed,
+      transform $transition-speed;
   }
 
   app-call-to-action[action="expand"] {
@@ -73,5 +80,23 @@ $transition-speed: 0.5s ease-in-out;
     opacity: 1;
     pointer-events: auto;
     transform: scaleY(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    h1,
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    h1,
+    h2 {
+      font-size: 1rem;
+    }
   }
 }

@@ -4,7 +4,8 @@ $transition-speed: 0.2s ease-in-out;
 
 .article-page ::ng-deep {
   margin: 0 auto;
-  width: 90%;
+  max-width: $app-max-width;
+  width: $app-width;
 
   main {
     .httpErrorResponse {
@@ -79,7 +80,7 @@ $transition-speed: 0.2s ease-in-out;
             line-height: 1rem;
             outline: none;
             padding: 0.5rem;
-            transition: all $transition-speed;
+            transition: border-color $transition-speed;
           }
 
           input::placeholder {
@@ -87,7 +88,7 @@ $transition-speed: 0.2s ease-in-out;
           }
 
           .commentError {
-            border: 1px solid red;
+            border-color: red;
           }
 
           .submit-button {
@@ -106,7 +107,9 @@ $transition-speed: 0.2s ease-in-out;
           line-height: 1rem;
           outline: none;
           padding: 0.5rem 1rem;
-          transition: all $transition-speed;
+          transition:
+            background-color $transition-speed,
+            color $transition-speed;
         }
 
         .submit-button:focus,
@@ -153,13 +156,14 @@ $transition-speed: 0.2s ease-in-out;
               color: $dark-gray;
               font: 1rem "Arvo", serif;
               outline: none;
-              transition: all $transition-speed;
+              transition:
+                border-color $transition-speed,
+                color $transition-speed;
             }
 
             .delete-button:focus,
             .delete-button:hover {
-              border: 0;
-              border-bottom: 2px solid $light-gray;
+              border-color: $light-gray;
               color: $light-gray;
             }
           }
@@ -184,6 +188,32 @@ $transition-speed: 0.2s ease-in-out;
           margin-top: 1rem;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .article-page main article {
+    .headline {
+      font-size: 1.75rem;
+    }
+
+    .photo,
+    .video {
+      padding: 20% 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .article-page main article {
+    .headline {
+      font-size: 1.5rem;
+    }
+
+    .photo,
+    .video {
+      padding: 25% 0;
     }
   }
 }

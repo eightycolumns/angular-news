@@ -3,7 +3,8 @@
 .home-page ::ng-deep {
   display: flex;
   margin: 0 auto;
-  width: 90%;
+  max-width: $app-max-width;
+  width: $app-width;
 
   aside:first-of-type {
     box-sizing: border-box;
@@ -209,6 +210,42 @@
         font-weight: bold;
         margin-right: 0.25rem;
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-page {
+    flex-wrap: wrap;
+
+    aside:first-of-type {
+      width: 30%;
+    }
+
+    main:not(.full-width) {
+      width: 70%;
+    }
+
+    aside:last-of-type {
+      border-top: 2px solid $light-gray;
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    flex-wrap: wrap;
+
+    aside:first-of-type {
+      width: 100%;
+    }
+
+    main:not(.full-width) {
+      border-top: 2px solid $light-gray;
+      margin-top: 1rem;
+      width: 100%;
     }
   }
 }

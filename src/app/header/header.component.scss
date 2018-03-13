@@ -5,10 +5,12 @@ $transition-speed: 0.2s ease-in-out;
 header {
   line-height: 1.5;
   margin: 0 auto;
-  width: 90%;
+  max-width: $app-max-width;
+  width: $app-width;
 
   nav:first-of-type {
     border-bottom: 1px solid $dark-gray;
+    cursor: default;
     padding: 1rem 0;
 
     ul {
@@ -34,14 +36,14 @@ header {
     .icon {
       color: $dark-gray;
       font-size: 1.25rem;
-      transition: all $transition-speed;
+      transition: color $transition-speed;
     }
 
     .text {
       bottom: 0.19rem;
       font: 0.75rem "Arvo", serif;
       position: relative;
-      transition: all $transition-speed;
+      transition: color $transition-speed;
     }
 
     .sections .text,
@@ -90,6 +92,7 @@ header {
 
   nav:last-of-type {
     border-top: 1px solid $dark-gray;
+    cursor: default;
     padding: 1rem 0;
     text-align: center;
 
@@ -110,13 +113,82 @@ header {
       color: $dark-gray;
       font: 1.19rem "Arvo", serif;
       text-decoration: none;
-      transition: all $transition-speed;
+      transition: border-color $transition-speed;
     }
 
     li:hover a,
     a:focus {
-      border-bottom: 2px solid $dark-gray;
+      border-color: $dark-gray;
       outline: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    div {
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      .date {
+        font-size: 1rem;
+      }
+    }
+
+    nav:last-of-type {
+      li:not(:first-of-type) {
+        margin-left: 1.5rem;
+      }
+
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    div {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .date {
+        font-size: 0.83rem;
+      }
+    }
+
+    nav:last-of-type {
+      li:not(:first-of-type) {
+        margin-left: 1rem;
+      }
+
+      li:hover a,
+      a:focus {
+        border-width: 1px;
+      }
+    }
+  }
+}
+
+@media (max-width:  480px) {
+  header {
+    div {
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width:  360px) {
+  header {
+    div {
+      h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 }

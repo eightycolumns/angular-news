@@ -3,7 +3,8 @@
 .category-page ::ng-deep {
   display: flex;
   margin: 0 auto;
-  width: 90%;
+  max-width: $app-max-width;
+  width: $app-width;
 
   main {
     article {
@@ -104,6 +105,65 @@
       .indent {
         display: inline-block;
         width: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .category-page {
+    main {
+      article {
+        .headline {
+          font-size: 1.75rem;
+          line-height: 2rem;
+        }
+
+        .photo,
+        .video {
+          padding: 20% 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .category-page {
+    flex-wrap: wrap;
+
+    main {
+      width: 100%;
+
+      article {
+        .headline {
+          font-size: 1.5rem;
+          line-height: 1.75rem;
+        }
+
+        .photo,
+        .video {
+          padding: 25% 0;
+        }
+      }
+    }
+
+    aside {
+      border-left: 0;
+      border-top: 2px solid $light-gray;
+      margin-top: 1rem;
+      padding-left: 0;
+      padding-top: 1rem;
+      width: 100%;
+
+      article {
+        .headline {
+          font-size: 1.25rem;
+        }
+
+        .photo {
+          padding: 25% 0;
+        }
       }
     }
   }
