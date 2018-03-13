@@ -13,6 +13,7 @@ import { CallToActionComponent } from "./call-to-action/call-to-action.component
 import { CategoryPageComponent } from "./category-page/category-page.component";
 import { ContentService } from "./common/service/content.service";
 import { FirstSentencePipe } from "./common/pipe/first-sentence.pipe";
+import { FooterComponent } from "./footer/footer.component";
 import { FullStoryPipe } from "./common/pipe/full-story.pipe";
 import { HeaderComponent } from "./header/header.component";
 import { HeadlinePipe } from "./common/pipe/headline.pipe";
@@ -35,6 +36,7 @@ import { RouterLinkPipe } from "./common/pipe/router-link.pipe";
     CallToActionComponent,
     CategoryPageComponent,
     FirstSentencePipe,
+    FooterComponent,
     FullStoryPipe,
     HeaderComponent,
     HeadlinePipe,

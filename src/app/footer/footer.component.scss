@@ -1,0 +1,15 @@
+@import "main.scss";
+
+footer {
+  border-top: 1px solid $dark-gray;
+  margin: 1rem auto;
+  max-width: $app-max-width;
+  padding-top: 1rem;
+  width: $app-width;
+
+  .copyright {
+    color: $dark-gray;
+    font: 1rem "Arvo", serif;
+    text-align: center;
+  }
+}
