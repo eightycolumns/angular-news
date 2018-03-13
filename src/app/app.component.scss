@@ -1,9 +1,9 @@
-.outer {
+:host {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  .inner {
+  div {
     flex: 1 0 auto;
   }
 }
